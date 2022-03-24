@@ -55,11 +55,11 @@ export default function makeResultData(birth, gender, answers) {
 
   // 양육행동경항 계산: KTW 필요(KTW01, KTW02)
   const extraPBT = getExtraStatusPBT(KTW['PBT']);
-  // console.log('extra PBT', extraPBT);
+  console.log('extra PBT', extraPBT);
 
   // 등급 계산 KTW
   const grade = ratingGrade(KTW);
-  console.log('grade', grade);
+  // console.log('grade', grade);
 
   // result 생성
   // TW

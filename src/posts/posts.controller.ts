@@ -5,6 +5,7 @@ import {
   Get,
   Param,
   Post,
+  Query,
   UseInterceptors,
 } from '@nestjs/common';
 import { PostCreateDto } from './dto/post.create.dto';
@@ -16,8 +17,8 @@ export class PostsController {
   constructor(private readonly postsService: PostsService) {}
 
   @Get()
-  async getAllPosts() {
-    return this.postsService.getAllPost();
+  async getAllPosts(@Query() query: object) {
+    return this.postsService.getAllPost(query);
   }
 
   @Get(':id')

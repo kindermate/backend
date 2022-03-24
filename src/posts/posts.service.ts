@@ -11,8 +11,8 @@ export class PostsService {
     private readonly postModel: Model<Post>,
   ) {}
 
-  async getAllPost() {
-    const posts = await this.postModel.find();
+  async getAllPost(query) {
+    const posts = await this.postModel.find(query);
     return posts;
   }
 

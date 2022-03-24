@@ -1,4 +1,5 @@
 import { Member, MemberSchema } from '@/members/member.schema';
+import { Rating, RatingSchema } from '@/ratings/schema/rating.schema';
 import { User, UserSchema } from '@/users/user.schema';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
@@ -17,6 +18,7 @@ import { Week, WeekSchema } from './schema/week.schema';
     MongooseModule.forFeature([{ name: Task.name, schema: TaskSchema }]),
     MongooseModule.forFeature([{ name: Message.name, schema: MessageSchema }]),
     MongooseModule.forFeature([{ name: Mission.name, schema: MissionSchema }]),
+    MongooseModule.forFeature([{ name: Rating.name, schema: RatingSchema }]),
   ],
   controllers: [MissionsController],
   providers: [MissionsService],

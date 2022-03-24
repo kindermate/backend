@@ -21,16 +21,6 @@ export class Mission extends Document {
   })
   result: Types.ObjectId;
 
-  @Prop({
-    type: Object,
-    default: {
-      CTT: [0, 0, 0, 0, 0, 0],
-      MAT: [0, 0, 0, 0, 0, 0, 0, 0],
-      PBT: [0, 0, 0, 0],
-    },
-  })
-  ratings: object;
-
   @Prop()
   week: number;
 

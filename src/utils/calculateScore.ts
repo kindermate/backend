@@ -52,6 +52,7 @@ export function calculateRW(answers: object): object {
       scoreRW[k] = [RW01, RW02, RW03, RW04];
     }
   }
+  // console.log('RW', scoreRW);
   return scoreRW;
 }
 
@@ -63,7 +64,7 @@ export function calculateZW(rw: object, month: number, gender: string): object {
       const scores = [];
       v.forEach((rw, index) => {
         const variables = getVariablesCTT(month, gender, index + 1);
-        console.log(variables);
+        // console.log(variables);
         const zw = (rw - variables[0]) / variables[1];
         scores.push(zw);
       });
@@ -73,6 +74,7 @@ export function calculateZW(rw: object, month: number, gender: string): object {
       const scores = [];
       v.forEach((rw, index) => {
         const variables = getVariablesMAT(month, gender, index + 1);
+        // console.log(variables);
         const zw = (rw - variables[0]) / variables[1];
         scores.push(zw);
       });
@@ -88,6 +90,7 @@ export function calculateZW(rw: object, month: number, gender: string): object {
       scoreZW[k] = scores;
     }
   }
+  // console.log('ZW', scoreZW);
   return scoreZW;
 }
 
@@ -101,6 +104,7 @@ export function calulateTW(zw: object): object {
     });
     scoreTW[k] = scores;
   }
+  // console.log('TW', scoreTW);
   return scoreTW;
 }
 
@@ -112,43 +116,59 @@ export function calculateKTW(
 ): object {
   const scoreKTW = {};
   for (const [k, v] of Object.entries(tw)) {
-    console.log(k, v);
+    // console.log(k, v);
     const scores = [];
     v.forEach((value: number, index: number) => {
       if (k === 'CTT') {
-        const limit = getGradeLimitCTT(value, month, gender, index + 1);
+        // console.log(value, month, gender, index + 1);
+        const limit = getGradeLimitCTT(
+          Math.floor(value),
+          month,
+          gender,
+          index + 1,
+        );
         const x1 = limit[0];
         const x2 = limit[1];
         const y = getStaticGradeCTT(limit[2]);
         const y1 = y[0];
         const y2 = y[1];
-        const ktw = y1 + ((y2 - y1) / (x2 - x1)) * (value - x1);
+        const ktw = y1 + ((y2 - y1) / (x2 - x1)) * (Math.floor(value) - x1);
         // console.log(x1, x2, y1, y2, value);
         // console.log(parseFloat(ktw.toFixed(2)));
         scores.push(ktw);
       }
       if (k === 'MAT') {
-        const limit = getGradeLimitMAT(value, month, gender, index + 1);
+        const limit = getGradeLimitMAT(
+          Math.floor(value),
+          month,
+          gender,
+          index + 1,
+        );
         const x1 = limit[0];
         const x2 = limit[1];
         const y = getStaticGradeMAT(limit[2]);
         const y1 = y[0];
         const y2 = y[1];
-        const ktw = y1 + ((y2 - y1) / (x2 - x1)) * (value - x1);
+        const ktw = y1 + ((y2 - y1) / (x2 - x1)) * (Math.floor(value) - x1);
         // console.log(x1, x2, y1, y2, value);
         // console.log(parseFloat(ktw.toFixed(2)));
         scores.push(ktw);
       }
       if (k === 'PBT') {
-        console.log(value, month, gender, index + 1);
-        const limit = getGradeLimitPBT(value, month, gender, index + 1);
-        console.log(limit);
+        // console.log(value, month, gender, index + 1);
+        const limit = getGradeLimitPBT(
+          Math.floor(value),
+          month,
+          gender,
+          index + 1,
+        );
+        // console.log(limit);
         const x1 = limit[0];
         const x2 = limit[1];
         const y = getStaticGradePBT(limit[2]);
         const y1 = y[0];
         const y2 = y[1];
-        const ktw = y1 + ((y2 - y1) / (x2 - x1)) * (value - x1);
+        const ktw = y1 + ((y2 - y1) / (x2 - x1)) * (Math.floor(value) - x1);
         // console.log(x1, x2, y1, y2, value);
         // console.log(parseFloat(ktw.toFixed(2)));
         scores.push(ktw);
@@ -156,6 +176,6 @@ export function calculateKTW(
       scoreKTW[k] = scores;
     });
   }
-  console.log(scoreKTW);
+  // console.log('KTW', scoreKTW);
   return scoreKTW;
 }

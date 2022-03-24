@@ -38,6 +38,9 @@ import { Message } from '@/missions/schema/message.schema';
 import { MessageOptions } from './options/message.options';
 import { Mission } from '@/missions/schema/mission.schema';
 import { MissionOptions } from './options/mission.options';
+import { Guide } from '@/guides/schema/guide.schema';
+import { GuideOptions } from './options/guide.options';
+import { GuidesModule } from '@/guides/guides.module';
 
 AdminJS.registerAdapter(AdminJSMongoose);
 
@@ -51,6 +54,7 @@ AdminJS.registerAdapter(AdminJSMongoose);
         TestsModule,
         ResultsModule,
         MissionsModule,
+        GuidesModule,
       ],
       inject: [
         getModelToken(User.name),
@@ -67,6 +71,7 @@ AdminJS.registerAdapter(AdminJSMongoose);
         getModelToken(Task.name),
         getModelToken(Message.name),
         getModelToken(Mission.name),
+        getModelToken(Guide.name),
       ],
       useFactory: (
         userModel: Model<User>,
@@ -83,6 +88,7 @@ AdminJS.registerAdapter(AdminJSMongoose);
         taskModel: Model<Task>,
         messageModel: Model<Message>,
         missionModel: Model<Mission>,
+        guideModel: Model<Guide>,
       ) => ({
         adminJsOptions: {
           rootPath: '/admin',
@@ -101,6 +107,7 @@ AdminJS.registerAdapter(AdminJSMongoose);
             { resource: taskModel, options: TaskOptions },
             { resource: messageModel, options: MessageOptions },
             { resource: missionModel, options: MissionOptions },
+            { resource: guideModel, options: GuideOptions },
           ],
           locale: {
             language: 'EN',
@@ -121,6 +128,7 @@ AdminJS.registerAdapter(AdminJSMongoose);
                 Task: '미션내용',
                 Message: '메시지',
                 Mission: '미션',
+                Guide: '가이드',
               },
               messages: {
                 loginWelcome: '플레이팩토 - 킨더메이트 관리자 사이트입니다.',

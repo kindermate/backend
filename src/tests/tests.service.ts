@@ -41,8 +41,8 @@ export class TestsService {
     const { _id, birth, gender } = await this.memberModel.findById({
       _id: body.owner,
     });
-    console.log(_id, birth, gender);
-    console.log(body.answers);
+    // console.log(_id, birth, gender);
+    // console.log(body.answers);
 
     // 결과 생성/저장
     const results = makeResultData(birth, gender, body.answers);
@@ -62,7 +62,10 @@ export class TestsService {
     await mission.save();
 
     // 답안 저장
-    const answer = await this.answerModel.create(body);
+    const answer = await this.answerModel.create({
+      owner: _id,
+      answers: body.answers,
+    });
     return answer;
   }
 }

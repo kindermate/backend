@@ -4,9 +4,7 @@ import {
   Controller,
   Get,
   Param,
-  Patch,
   Post,
-  Put,
   Query,
   UseInterceptors,
 } from '@nestjs/common';
@@ -26,10 +24,5 @@ export class MissionsController {
   @Get(':id')
   async getMembersWithMissions(@Param('id') id: string) {
     return await this.missionService.getMembersWithMissions(id);
-  }
-
-  @Patch('rating')
-  async saveRating(@Body() body: object) {
-    return await this.missionService.saveRating(body);
   }
 }

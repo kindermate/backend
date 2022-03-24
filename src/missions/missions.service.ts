@@ -1,11 +1,12 @@
-import * as mongoose from 'mongoose';
+// import * as mongoose from 'mongoose';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Mission, MissionSchema } from './schema/mission.schema';
+import { Mission } from './schema/mission.schema';
 import { User } from '@/users/user.schema';
 import { Member } from '@/members/member.schema';
 import { Week } from './schema/week.schema';
+import { Rating } from '../ratings/schema/rating.schema';
 
 @Injectable()
 export class MissionsService {
@@ -18,6 +19,8 @@ export class MissionsService {
     private readonly memberModel: Model<Member>,
     @InjectModel(Week.name)
     private readonly weekModel: Model<Week>,
+    @InjectModel(Rating.name)
+    private readonly ratingModel: Model<Rating>,
   ) {}
 
   async getMembersWithMissions(id: string) {
@@ -66,15 +69,5 @@ export class MissionsService {
       mission['tasks'] = missionSet.tasksLow;
     }
     return mission;
-  }
-
-  async saveRating(value: object) {
-    const id = value['mission'];
-    const week = value['week'];
-    const code = value['code'];
-    const rating = value['rating'];
-    const mission = await this.missionModel.findById(id);
-    mission.ratings[code].splice(week - 1, 1, rating);
-    return await mission.save();
   }
 }

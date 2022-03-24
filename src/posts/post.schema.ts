@@ -53,6 +53,13 @@ export class Post extends Document {
   @IsBoolean()
   @IsOptional()
   isNotice: boolean;
+
+  @Prop({
+    default: false,
+  })
+  @IsBoolean()
+  @IsOptional()
+  isDocument: boolean;
 }
 
 export const PostSchema = SchemaFactory.createForClass(Post);

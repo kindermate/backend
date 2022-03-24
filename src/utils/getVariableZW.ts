@@ -3,7 +3,7 @@ export function getVariablesCTT(
   gender: string,
   part: number,
 ): [number, number] {
-  console.log('getVariablesCTT', month);
+  // console.log('getVariablesCTT', month);
   if (month >= 24 && month <= 35) {
     if (gender === 'male') {
       switch (part) {
@@ -242,7 +242,7 @@ export function getVariablesMAT(
   gender: string,
   part: number,
 ): [number, number] {
-  console.log('getVariablesMAT', month);
+  // console.log('getVariablesMAT', month);
   if (month >= 24 && month <= 35) {
     if (gender === 'male') {
       switch (part) {
@@ -537,7 +537,7 @@ export function getVariablesPBT(
   gender: string,
   part: number,
 ): [number, number] {
-  console.log('getVariablesPBT', month);
+  // console.log('getVariablesPBT', month);
   if (month >= 24 && month <= 35) {
     if (gender === 'male') {
       switch (part) {

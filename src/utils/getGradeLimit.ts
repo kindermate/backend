@@ -5,7 +5,7 @@ export function getGradeLimitCTT(
   gender: string,
   part: number,
 ): [number, number, string] {
-  console.log('getGradeLimitCTT', month);
+  // console.log('getGradeLimitCTT', tw);
   if (part === 1) {
     if (month >= 24 && month <= 35) {
       if (gender === 'male') {
@@ -13,7 +13,7 @@ export function getGradeLimitCTT(
           return [10.27, 44.4, 'L'];
         } else if (tw <= 58.05) {
           return [44.4, 58.05, 'N'];
-        } else if (tw <= 64.88) {
+        } else {
           return [58.05, 64.88, 'H'];
         }
       } else if (gender === 'female') {
@@ -21,7 +21,7 @@ export function getGradeLimitCTT(
           return [12.23, 45.02, 'L'];
         } else if (tw <= 58.13) {
           return [45.02, 58.13, 'N'];
-        } else if (tw <= 64.69) {
+        } else {
           return [58.13, 64.69, 'H'];
         }
       }
@@ -32,7 +32,7 @@ export function getGradeLimitCTT(
           return [7.16, 44.48, 'L'];
         } else if (tw <= 55.67) {
           return [44.48, 55.67, 'N'];
-        } else if (tw <= 66.87) {
+        } else {
           return [55.67, 66.87, 'H'];
         }
       } else if (gender === 'female') {
@@ -40,7 +40,7 @@ export function getGradeLimitCTT(
           return [15.99, 44.2, 'L'];
         } else if (tw <= 56.74) {
           return [44.2, 56.74, 'N'];
-        } else if (tw <= 66.14) {
+        } else {
           return [56.74, 66.14, 'H'];
         }
       }
@@ -51,7 +51,7 @@ export function getGradeLimitCTT(
           return [13.92, 44.32, 'L'];
         } else if (tw <= 54.46) {
           return [44.32, 54.46, 'N'];
-        } else if (tw <= 67.97) {
+        } else {
           return [54.46, 67.97, 'H'];
         }
       } else if (gender === 'female') {
@@ -59,7 +59,7 @@ export function getGradeLimitCTT(
           return [13.03, 44.07, 'L'];
         } else if (tw <= 54.41) {
           return [44.07, 54.41, 'N'];
-        } else if (tw <= 68.21) {
+        } else {
           return [54.41, 68.21, 'H'];
         }
       }
@@ -70,7 +70,7 @@ export function getGradeLimitCTT(
           return [10.48, 44.85, 'L'];
         } else if (tw <= 55.1) {
           return [44.85, 55.1, 'N'];
-        } else if (tw <= 65.46) {
+        } else {
           return [55.1, 65.46, 'H'];
         }
       } else if (gender === 'female') {
@@ -78,7 +78,7 @@ export function getGradeLimitCTT(
           return [11.77, 45.22, 'L'];
         } else if (tw <= 55.25) {
           return [45.22, 55.25, 'N'];
-        } else if (tw <= 65.28) {
+        } else {
           return [55.25, 65.28, 'H'];
         }
       }
@@ -89,7 +89,7 @@ export function getGradeLimitCTT(
           return [10.55, 45.03, 'L'];
         } else if (tw <= 55.38) {
           return [45.03, 55.38, 'N'];
-        } else if (tw <= 65.72) {
+        } else {
           return [55.38, 65.72, 'H'];
         }
       } else if (gender === 'female') {
@@ -97,7 +97,7 @@ export function getGradeLimitCTT(
           return [9.64, 45.74, 'L'];
         } else if (tw <= 56.57) {
           return [45.74, 56.57, 'N'];
-        } else if (tw <= 67.4) {
+        } else {
           return [56.57, 67.4, 'H'];
         }
       }
@@ -108,7 +108,7 @@ export function getGradeLimitCTT(
           return [7.79, 45.24, 'L'];
         } else if (tw <= 56.48) {
           return [45.24, 56.48, 'N'];
-        } else if (tw <= 67.72) {
+        } else {
           return [56.48, 67.72, 'H'];
         }
       } else if (gender === 'female') {
@@ -116,7 +116,7 @@ export function getGradeLimitCTT(
           return [13.43, 44.57, 'L'];
         } else if (tw <= 54.95) {
           return [44.57, 54.95, 'N'];
-        } else if (tw <= 68.79) {
+        } else {
           return [54.95, 68.79, 'H'];
         }
       }
@@ -127,7 +127,7 @@ export function getGradeLimitCTT(
           return [16.46, 45.13, 'L'];
         } else if (tw <= 54.68) {
           return [45.13, 54.68, 'N'];
-        } else if (tw <= 67.42) {
+        } else {
           return [54.68, 67.42, 'H'];
         }
       } else if (gender === 'female') {
@@ -135,7 +135,7 @@ export function getGradeLimitCTT(
           return [15.6, 45.81, 'L'];
         } else if (tw <= 55.87) {
           return [45.81, 55.87, 'N'];
-        } else if (tw <= 69.3) {
+        } else {
           return [55.87, 69.3, 'H'];
         }
       }
@@ -148,7 +148,7 @@ export function getGradeLimitCTT(
           return [35.3, 45.12, 'L'];
         } else if (tw <= 56.35) {
           return [45.12, 56.35, 'N'];
-        } else if (tw <= 78.32) {
+        } else {
           return [56.35, 78.32, 'H'];
         }
       } else if (gender === 'female') {
@@ -156,7 +156,7 @@ export function getGradeLimitCTT(
           return [34.36, 45.35, 'L'];
         } else if (tw <= 56.34) {
           return [45.35, 56.34, 'N'];
-        } else if (tw <= 77.4) {
+        } else {
           return [56.34, 77.4, 'H'];
         }
       }
@@ -167,7 +167,7 @@ export function getGradeLimitCTT(
           return [34.82, 45.39, 'L'];
         } else if (tw <= 55.95) {
           return [45.39, 55.95, 'N'];
-        } else if (tw <= 77.08) {
+        } else {
           return [55.95, 77.08, 'H'];
         }
       } else if (gender === 'female') {
@@ -175,7 +175,7 @@ export function getGradeLimitCTT(
           return [33.16, 44.19, 'L'];
         } else if (tw <= 55.22) {
           return [44.19, 55.22, 'N'];
-        } else if (tw <= 77.28) {
+        } else {
           return [55.22, 77.28, 'H'];
         }
       }
@@ -186,7 +186,7 @@ export function getGradeLimitCTT(
           return [31.83, 44.02, 'L'];
         } else if (tw <= 56.22) {
           return [44.02, 56.22, 'N'];
-        } else if (tw <= 80.61) {
+        } else {
           return [56.22, 80.61, 'H'];
         }
       } else if (gender === 'female') {
@@ -194,7 +194,7 @@ export function getGradeLimitCTT(
           return [31.22, 43.88, 'L'];
         } else if (tw <= 56.54) {
           return [43.88, 56.54, 'N'];
-        } else if (tw <= 81.86) {
+        } else {
           return [56.54, 81.86, 'H'];
         }
       }
@@ -205,7 +205,7 @@ export function getGradeLimitCTT(
           return [32.11, 43.6, 'L'];
         } else if (tw <= 55.1) {
           return [43.6, 55.1, 'N'];
-        } else if (tw <= 78.08) {
+        } else {
           return [55.1, 78.08, 'H'];
         }
       } else if (gender === 'female') {
@@ -213,7 +213,7 @@ export function getGradeLimitCTT(
           return [31.3, 43.5, 'L'];
         } else if (tw <= 55.69) {
           return [43.5, 55.69, 'N'];
-        } else if (tw <= 80.08) {
+        } else {
           return [55.69, 80.08, 'H'];
         }
       }
@@ -224,7 +224,7 @@ export function getGradeLimitCTT(
           return [32.49, 43.81, 'L'];
         } else if (tw <= 55.13) {
           return [43.81, 55.13, 'N'];
-        } else if (tw <= 77.77) {
+        } else {
           return [55.13, 77.77, 'H'];
         }
       } else if (gender === 'female') {
@@ -232,7 +232,7 @@ export function getGradeLimitCTT(
           return [30.29, 42.63, 'L'];
         } else if (tw <= 54.98) {
           return [42.63, 54.98, 'N'];
-        } else if (tw <= 79.67) {
+        } else {
           return [54.98, 79.67, 'H'];
         }
       }
@@ -243,7 +243,7 @@ export function getGradeLimitCTT(
           return [30.26, 43.25, 'L'];
         } else if (tw <= 56.23) {
           return [43.25, 56.23, 'N'];
-        } else if (tw <= 82.21) {
+        } else {
           return [56.23, 82.21, 'H'];
         }
       } else if (gender === 'female') {
@@ -251,7 +251,7 @@ export function getGradeLimitCTT(
           return [31.16, 43.61, 'L'];
         } else if (tw <= 56.06) {
           return [43.61, 56.06, 'N'];
-        } else if (tw <= 80.95) {
+        } else {
           return [56.06, 80.95, 'H'];
         }
       }
@@ -262,7 +262,7 @@ export function getGradeLimitCTT(
           return [30.42, 43.08, 'L'];
         } else if (tw <= 55.74) {
           return [43.08, 55.74, 'N'];
-        } else if (tw <= 81.05) {
+        } else {
           return [55.74, 81.05, 'H'];
         }
       } else if (gender === 'female') {
@@ -270,7 +270,7 @@ export function getGradeLimitCTT(
           return [32.54, 44.26, 'L'];
         } else if (tw <= 55.98) {
           return [44.26, 55.98, 'N'];
-        } else if (tw <= 79.41) {
+        } else {
           return [55.98, 79.41, 'H'];
         }
       }
@@ -283,7 +283,7 @@ export function getGradeLimitCTT(
           return [9.5, 43.98, 'L'];
         } else if (tw <= 56.52) {
           return [43.98, 56.52, 'N'];
-        } else if (tw <= 72.19) {
+        } else {
           return [56.52, 72.19, 'H'];
         }
       } else if (gender === 'female') {
@@ -291,7 +291,7 @@ export function getGradeLimitCTT(
           return [7.38, 45.72, 'L'];
         } else if (tw <= 55.3) {
           return [45.72, 55.3, 'N'];
-        } else if (tw <= 71.28) {
+        } else {
           return [55.3, 71.28, 'H'];
         }
       }
@@ -302,7 +302,7 @@ export function getGradeLimitCTT(
           return [6.64, 43.8, 'L'];
         } else if (tw <= 56.14) {
           return [43.8, 56.14, 'N'];
-        } else if (tw <= 71.79) {
+        } else {
           return [56.14, 71.79, 'H'];
         }
       } else if (gender === 'female') {
@@ -310,7 +310,7 @@ export function getGradeLimitCTT(
           return [7.6, 45.46, 'L'];
         } else if (tw <= 54.92) {
           return [45.46, 54.92, 'N'];
-        } else if (tw <= 70.69) {
+        } else {
           return [54.92, 70.69, 'H'];
         }
       }
@@ -321,7 +321,7 @@ export function getGradeLimitCTT(
           return [7.3, 46.78, 'L'];
         } else if (tw <= 56.64) {
           return [46.78, 56.64, 'N'];
-        } else if (tw <= 73.09) {
+        } else {
           return [56.64, 73.09, 'H'];
         }
       } else if (gender === 'female') {
@@ -329,7 +329,7 @@ export function getGradeLimitCTT(
           return [7.26, 46.35, 'L'];
         } else if (tw <= 56.12) {
           return [46.35, 56.12, 'N'];
-        } else if (tw <= 72.41) {
+        } else {
           return [56.12, 72.41, 'H'];
         }
       }
@@ -340,7 +340,7 @@ export function getGradeLimitCTT(
           return [6.35, 45.44, 'L'];
         } else if (tw <= 55.21) {
           return [45.44, 55.21, 'N'];
-        } else if (tw <= 71.5) {
+        } else {
           return [55.21, 71.5, 'H'];
         }
       } else if (gender === 'female') {
@@ -348,7 +348,7 @@ export function getGradeLimitCTT(
           return [4.93, 45.47, 'L'];
         } else if (tw <= 55.61) {
           return [45.47, 55.61, 'N'];
-        } else if (tw <= 75.2) {
+        } else {
           return [55.61, 75.2, 'H'];
         }
       }
@@ -359,7 +359,7 @@ export function getGradeLimitCTT(
           return [4.62, 45.72, 'L'];
         } else if (tw <= 55.99) {
           return [45.72, 55.99, 'N'];
-        } else if (tw <= 73.1) {
+        } else {
           return [55.99, 73.12, 'H'];
         }
       } else if (gender === 'female') {
@@ -367,7 +367,7 @@ export function getGradeLimitCTT(
           return [5.43, 45.17, 'L'];
         } else if (tw <= 55.1) {
           return [45.17, 55.1, 'N'];
-        } else if (tw <= 71.66) {
+        } else {
           return [55.1, 71.66, 'H'];
         }
       }
@@ -378,7 +378,7 @@ export function getGradeLimitCTT(
           return [2.03, 44.73, 'L'];
         } else if (tw <= 55.41) {
           return [44.73, 55.41, 'N'];
-        } else if (tw <= 73.2) {
+        } else {
           return [55.41, 73.2, 'H'];
         }
       } else if (gender === 'female') {
@@ -386,7 +386,7 @@ export function getGradeLimitCTT(
           return [7.6, 46.56, 'L'];
         } else if (tw <= 56.3) {
           return [46.56, 56.3, 'N'];
-        } else if (tw <= 72.53) {
+        } else {
           return [56.3, 72.53, 'H'];
         }
       }
@@ -397,7 +397,7 @@ export function getGradeLimitCTT(
           return [5.31, 46.12, 'L'];
         } else if (tw <= 56.33) {
           return [46.12, 56.33, 'N'];
-        } else if (tw <= 73.33) {
+        } else {
           return [56.33, 73.33, 'H'];
         }
       } else if (gender === 'female') {
@@ -405,7 +405,7 @@ export function getGradeLimitCTT(
           return [7.57, 43.64, 'L'];
         } else if (tw <= 56.75) {
           return [43.64, 56.75, 'N'];
-        } else if (tw <= 73.15) {
+        } else {
           return [56.75, 73.15, 'H'];
         }
       }
@@ -418,7 +418,7 @@ export function getGradeLimitCTT(
           return [30.57, 45.54, 'L'];
         } else if (tw <= 54.62) {
           return [45.54, 54.62, 'N'];
-        } else if (tw <= 78.47) {
+        } else {
           return [54.62, 78.47, 'H'];
         }
       } else if (gender === 'female') {
@@ -426,7 +426,7 @@ export function getGradeLimitCTT(
           return [31.81, 42.92, 'L'];
         } else if (tw <= 54.03) {
           return [42.92, 54.03, 'N'];
-        } else if (tw <= 76.25) {
+        } else {
           return [54.03, 76.25, 'H'];
         }
       }
@@ -437,7 +437,7 @@ export function getGradeLimitCTT(
           return [31.45, 43.8, 'L'];
         } else if (tw <= 56.14) {
           return [43.8, 56.14, 'N'];
-        } else if (tw <= 80.83) {
+        } else {
           return [56.14, 80.83, 'H'];
         }
       } else if (gender === 'female') {
@@ -446,19 +446,19 @@ export function getGradeLimitCTT(
           return [34.06, 42.53, 'L'];
         } else if (tw <= 53.13) {
           return [42.23, 53.13, 'N'];
-        } else if (tw <= 77.66) {
+        } else {
           return [53.13, 77.66, 'H'];
         }
       }
     }
     if (month >= 48 && month <= 59) {
       if (gender === 'male') {
-        console.log('this', tw);
+        // console.log('this', tw);
         if (tw <= 43.38) {
           return [31.82, 43.38, 'L'];
         } else if (tw <= 54.94) {
           return [43.38, 54.94, 'N'];
-        } else if (tw > 54.94) {
+        } else {
           return [54.94, 78.06, 'H'];
         }
       } else if (gender === 'female') {
@@ -466,7 +466,7 @@ export function getGradeLimitCTT(
           return [32.81, 45.05, 'L'];
         } else if (tw <= 54.22) {
           return [45.05, 54.22, 'N'];
-        } else if (tw <= 81.74) {
+        } else {
           return [54.22, 81.74, 'H'];
         }
       }
@@ -477,7 +477,7 @@ export function getGradeLimitCTT(
           return [34.63, 43.89, 'L'];
         } else if (tw <= 56.23) {
           return [43.89, 56.23, 'N'];
-        } else if (tw <= 84.01) {
+        } else {
           return [56.23, 84.01, 'H'];
         }
       } else if (gender === 'female') {
@@ -485,7 +485,7 @@ export function getGradeLimitCTT(
           return [35.05, 44.39, 'L'];
         } else if (tw <= 53.74) {
           return [44.39, 53.74, 'N'];
-        } else if (tw <= 84.89) {
+        } else {
           return [53.74, 84.89, 'H'];
         }
       }
@@ -496,7 +496,7 @@ export function getGradeLimitCTT(
           return [34.97, 44.12, 'L'];
         } else if (tw <= 53.2) {
           return [44.12, 53.26, 'N'];
-        } else if (tw <= 83.75) {
+        } else {
           return [53.26, 83.75, 'H'];
         }
       } else if (gender === 'female') {
@@ -504,7 +504,7 @@ export function getGradeLimitCTT(
           return [35.7, 45.47, 'L'];
         } else if (tw <= 55.24) {
           return [45.47, 55.24, 'N'];
-        } else if (tw <= 87.82) {
+        } else {
           return [55.24, 87.82, 'H'];
         }
       }
@@ -515,7 +515,7 @@ export function getGradeLimitCTT(
           return [34.69, 44.46, 'L'];
         } else if (tw <= 54.23) {
           return [44.46, 54.23, 'N'];
-        } else if (tw <= 86.81) {
+        } else {
           return [54.23, 86.81, 'H'];
         }
       } else if (gender === 'female') {
@@ -523,7 +523,7 @@ export function getGradeLimitCTT(
           return [35.11, 44.45, 'L'];
         } else if (tw <= 53.8) {
           return [44.45, 53.8, 'N'];
-        } else if (tw <= 84.95) {
+        } else {
           return [53.8, 84.95, 'H'];
         }
       }
@@ -534,7 +534,7 @@ export function getGradeLimitCTT(
           return [35.83, 41.87, 'L'];
         } else if (tw <= 53.96) {
           return [41.87, 53.96, 'N'];
-        } else if (tw <= 84.17) {
+        } else {
           return [53.96, 84.17, 'H'];
         }
       } else if (gender === 'female') {
@@ -542,7 +542,7 @@ export function getGradeLimitCTT(
           return [35.6, 41.8, 'L'];
         } else if (tw <= 54.18) {
           return [41.8, 54.18, 'N'];
-        } else if (tw <= 85.14) {
+        } else {
           return [54.18, 85.14, 'H'];
         }
       }
@@ -555,7 +555,7 @@ export function getGradeLimitCTT(
           return [24.92, 43.97, 'L'];
         } else if (tw <= 53.49) {
           return [43.97, 53.49, 'N'];
-        } else if (tw <= 75.71) {
+        } else {
           return [53.49, 75.71, 'H'];
         }
       } else if (gender === 'female') {
@@ -563,7 +563,7 @@ export function getGradeLimitCTT(
           return [23.65, 43.92, 'L'];
         } else if (tw <= 54.05) {
           return [43.92, 54.05, 'N'];
-        } else if (tw <= 77.7) {
+        } else {
           return [54.05, 77.7, 'H'];
         }
       }
@@ -574,7 +574,7 @@ export function getGradeLimitCTT(
           return [25.29, 45.49, 'L'];
         } else if (tw <= 55.59) {
           return [45.49, 55.59, 'N'];
-        } else if (tw <= 79.16) {
+        } else {
           return [55.59, 79.16, 'H'];
         }
       } else if (gender === 'female') {
@@ -582,7 +582,7 @@ export function getGradeLimitCTT(
           return [25.46, 35.63, 'L'];
         } else if (tw <= 49.19) {
           return [35.63, 49.19, 'N'];
-        } else if (tw <= 79.69) {
+        } else {
           return [49.19, 79.69, 'H'];
         }
       }
@@ -593,7 +593,7 @@ export function getGradeLimitCTT(
           return [23.59, 45.33, 'L'];
         } else if (tw <= 52.57) {
           return [45.33, 52.57, 'N'];
-        } else if (tw <= 81.56) {
+        } else {
           return [52.57, 81.56, 'H'];
         }
       } else if (gender === 'female') {
@@ -601,7 +601,7 @@ export function getGradeLimitCTT(
           return [23.46, 46.02, 'L'];
         } else if (tw <= 53.53) {
           return [46.02, 53.53, 'N'];
-        } else if (tw <= 83.61) {
+        } else {
           return [53.53, 83.61, 'H'];
         }
       }
@@ -612,7 +612,7 @@ export function getGradeLimitCTT(
           return [25.49, 43.67, 'L'];
         } else if (tw <= 54.58) {
           return [43.67, 54.58, 'N'];
-        } else if (tw <= 83.67) {
+        } else {
           return [54.58, 83.67, 'H'];
         }
       } else if (gender === 'female') {
@@ -620,7 +620,7 @@ export function getGradeLimitCTT(
           return [25.15, 43.67, 'L'];
         } else if (tw <= 54.78) {
           return [43.67, 54.78, 'N'];
-        } else if (tw <= 84.41) {
+        } else {
           return [54.78, 84.41, 'H'];
         }
       }
@@ -631,7 +631,7 @@ export function getGradeLimitCTT(
           return [25.29, 43.27, 'L'];
         } else if (tw <= 54.06) {
           return [43.27, 54.06, 'N'];
-        } else if (tw <= 82.84) {
+        } else {
           return [54.06, 82.84, 'H'];
         }
       } else if (gender === 'female') {
@@ -639,7 +639,7 @@ export function getGradeLimitCTT(
           return [25.2, 44.58, 'L'];
         } else if (tw <= 56.03) {
           return [44.58, 56.03, 'N'];
-        } else if (tw <= 86.56) {
+        } else {
           return [56.03, 86.56, 'H'];
         }
       }
@@ -650,7 +650,7 @@ export function getGradeLimitCTT(
           return [22.77, 46.21, 'L'];
         } else if (tw <= 54.02) {
           return [46.21, 54.02, 'N'];
-        } else if (tw <= 85.27) {
+        } else {
           return [54.02, 85.27, 'H'];
         }
       } else if (gender === 'female') {
@@ -658,7 +658,7 @@ export function getGradeLimitCTT(
           return [23.97, 43.05, 'L'];
         } else if (tw <= 54.5) {
           return [43.05, 54.5, 'N'];
-        } else if (tw <= 85.04) {
+        } else {
           return [54.5, 85.04, 'H'];
         }
       }
@@ -669,7 +669,7 @@ export function getGradeLimitCTT(
           return [25.5, 43.49, 'L'];
         } else if (tw <= 54.28) {
           return [43.49, 54.28, 'N'];
-        } else if (tw <= 83.06) {
+        } else {
           return [54.28, 83.06, 'H'];
         }
       } else if (gender === 'female') {
@@ -677,7 +677,7 @@ export function getGradeLimitCTT(
           return [26.55, 43.79, 'L'];
         } else if (tw <= 54.14) {
           return [43.79, 54.14, 'N'];
-        } else if (tw <= 81.72) {
+        } else {
           return [54.14, 81.72, 'H'];
         }
       }
@@ -690,7 +690,7 @@ export function getGradeLimitCTT(
           return [22.3, 45.71, 'L'];
         } else if (tw <= 55.08) {
           return [45.71, 55.08, 'N'];
-        } else if (tw <= 69.13) {
+        } else {
           return [55.08, 69.13, 'H'];
         }
       } else if (gender === 'female') {
@@ -698,7 +698,7 @@ export function getGradeLimitCTT(
           return [25.28, 44.84, 'L'];
         } else if (tw <= 54.6) {
           return [44.84, 54.62, 'N'];
-        } else if (tw <= 74.18) {
+        } else {
           return [54.62, 74.18, 'H'];
         }
       }
@@ -709,7 +709,7 @@ export function getGradeLimitCTT(
           return [20.63, 44.44, 'L'];
         } else if (tw <= 55.03) {
           return [44.44, 55.03, 'N'];
-        } else if (tw <= 73.54) {
+        } else {
           return [55.03, 73.54, 'H'];
         }
       } else if (gender === 'female') {
@@ -717,7 +717,7 @@ export function getGradeLimitCTT(
           return [23.08, 44.3, 'L'];
         } else if (tw <= 54.91) {
           return [44.3, 54.91, 'N'];
-        } else if (tw <= 76.13) {
+        } else {
           return [54.91, 76.13, 'H'];
         }
       }
@@ -728,7 +728,7 @@ export function getGradeLimitCTT(
           return [19.7, 44.42, 'L'];
         } else if (tw <= 55.41) {
           return [44.42, 55.41, 'N'];
-        } else if (tw <= 74.64) {
+        } else {
           return [55.41, 74.64, 'H'];
         }
       } else if (gender === 'female') {
@@ -736,7 +736,7 @@ export function getGradeLimitCTT(
           return [23.14, 44.58, 'L'];
         } else if (tw <= 55.31) {
           return [44.58, 55.31, 'N'];
-        } else if (tw <= 76.76) {
+        } else {
           return [55.31, 76.76, 'H'];
         }
       }
@@ -755,7 +755,7 @@ export function getGradeLimitCTT(
           return [25.61, 44.58, 'L'];
         } else if (tw <= 55.42) {
           return [44.58, 55.42, 'N'];
-        } else if (tw <= 79.81) {
+        } else {
           return [55.42, 79.81, 'H'];
         }
       }
@@ -766,7 +766,7 @@ export function getGradeLimitCTT(
           return [24.23, 44.64, 'L'];
         } else if (tw <= 54.85) {
           return [44.64, 54.85, 'N'];
-        } else if (tw <= 75.26) {
+        } else {
           return [54.85, 75.26, 'H'];
         }
       } else if (gender === 'female') {
@@ -774,7 +774,7 @@ export function getGradeLimitCTT(
           return [26.08, 45.53, 'L'];
         } else if (tw <= 53.86) {
           return [45.53, 53.86, 'N'];
-        } else if (tw <= 81.64) {
+        } else {
           return [53.86, 81.64, 'H'];
         }
       }
@@ -785,7 +785,7 @@ export function getGradeLimitCTT(
           return [24.54, 44.85, 'L'];
         } else if (tw <= 55.0) {
           return [44.85, 55.0, 'N'];
-        } else if (tw <= 75.3) {
+        } else {
           return [55.0, 75.3, 'H'];
         }
       } else if (gender === 'female') {
@@ -793,7 +793,7 @@ export function getGradeLimitCTT(
           return [28.64, 43.79, 'L'];
         } else if (tw <= 53.89) {
           return [43.79, 53.89, 'N'];
-        } else if (tw <= 79.14) {
+        } else {
           return [53.89, 79.14, 'H'];
         }
       }
@@ -804,7 +804,7 @@ export function getGradeLimitCTT(
           return [25.13, 45.33, 'L'];
         } else if (tw <= 55.43) {
           return [45.33, 55.43, 'N'];
-        } else if (tw <= 75.63) {
+        } else {
           return [55.43, 75.63, 'H'];
         }
       } else if (gender === 'female') {
@@ -812,7 +812,7 @@ export function getGradeLimitCTT(
           return [27.73, 44.31, 'L'];
         } else if (tw <= 53.24) {
           return [44.31, 53.24, 'N'];
-        } else if (tw <= 78.75) {
+        } else {
           return [53.24, 78.75, 'H'];
         }
       }
@@ -827,7 +827,7 @@ export function getGradeLimitMAT(
   gender: string,
   part: number,
 ): [number, number, string] {
-  console.log('getGradeLimitMAT', month);
+  // console.log('getGradeLimitMAT', tw);
   if (part === 1) {
     if (month >= 24 && month <= 35) {
       if (gender === 'male') {
@@ -843,7 +843,7 @@ export function getGradeLimitMAT(
           return [52.1, 59.22, 'NH'];
         } else if (tw <= 62.78) {
           return [59.22, 62.78, 'H'];
-        } else if (tw <= 65.78) {
+        } else {
           return [62.78, 65.78, 'VH'];
         }
       } else if (gender === 'female') {
@@ -859,7 +859,7 @@ export function getGradeLimitMAT(
           return [55.06, 59.28, 'NH'];
         } else if (tw <= 62.28) {
           return [59.28, 62.28, 'H'];
-        } else if (tw <= 65.28) {
+        } else {
           return [62.28, 65.28, 'VH'];
         }
       }
@@ -878,7 +878,7 @@ export function getGradeLimitMAT(
           return [52.1, 59.22, 'NH'];
         } else if (tw <= 62.78) {
           return [59.22, 62.78, 'H'];
-        } else if (tw <= 65.78) {
+        } else {
           return [62.78, 65.78, 'VH'];
         }
       } else if (gender === 'female') {
@@ -894,7 +894,7 @@ export function getGradeLimitMAT(
           return [55.06, 59.28, 'NH'];
         } else if (tw <= 62.28) {
           return [59.28, 62.28, 'H'];
-        } else if (tw <= 65.28) {
+        } else {
           return [62.28, 65.28, 'VH'];
         }
       }
@@ -913,7 +913,7 @@ export function getGradeLimitMAT(
           return [54.2, 61.19, 'NH'];
         } else if (tw <= 64.69) {
           return [61.19, 64.69, 'H'];
-        } else if (tw <= 67.7) {
+        } else {
           return [64.69, 67.7, 'VH'];
         }
       } else if (gender === 'female') {
@@ -929,7 +929,7 @@ export function getGradeLimitMAT(
           return [54.69, 58.54, 'NH'];
         } else if (tw <= 62.38) {
           return [58.54, 62.38, 'H'];
-        } else if (tw <= 65.34) {
+        } else {
           return [62.38, 65.34, 'VH'];
         }
       }
@@ -948,7 +948,7 @@ export function getGradeLimitMAT(
           return [54.83, 61.1, 'NH'];
         } else if (tw <= 64.23) {
           return [61.1, 64.23, 'H'];
-        } else if (tw <= 67.26) {
+        } else {
           return [64.23, 67.26, 'VH'];
         }
       } else if (gender === 'female') {
@@ -964,7 +964,7 @@ export function getGradeLimitMAT(
           return [54.08, 59.24, 'NH'];
         } else if (tw <= 62.24) {
           return [59.24, 62.24, 'H'];
-        } else if (tw <= 65.26) {
+        } else {
           return [62.24, 65.26, 'VH'];
         }
       }
@@ -983,7 +983,7 @@ export function getGradeLimitMAT(
           return [52.23, 58.6, 'NH'];
         } else if (tw <= 64.97) {
           return [58.6, 64.97, 'H'];
-        } else if (tw <= 67.96) {
+        } else {
           return [64.97, 67.96, 'VH'];
         }
       } else if (gender === 'female') {
@@ -999,7 +999,7 @@ export function getGradeLimitMAT(
           return [55.37, 59.07, 'NH'];
         } else if (tw <= 62.78) {
           return [59.07, 62.78, 'H'];
-        } else if (tw <= 65.79) {
+        } else {
           return [62.78, 65.79, 'VH'];
         }
       }
@@ -1018,7 +1018,7 @@ export function getGradeLimitMAT(
           return [54.13, 57.3, 'NH'];
         } else if (tw <= 63.65) {
           return [57.3, 63.65, 'H'];
-        } else if (tw <= 66.84) {
+        } else {
           return [63.65, 66.84, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1034,7 +1034,7 @@ export function getGradeLimitMAT(
           return [53.05, 59.4, 'NH'];
         } else if (tw <= 62.57) {
           return [59.4, 62.57, 'H'];
-        } else if (tw <= 65.56) {
+        } else {
           return [62.57, 65.56, 'VH'];
         }
       }
@@ -1053,7 +1053,7 @@ export function getGradeLimitMAT(
           return [54.2, 59.8, 'NH'];
         } else if (tw <= 65.41) {
           return [59.8, 65.41, 'H'];
-        } else if (tw <= 68.42) {
+        } else {
           return [65.41, 68.42, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1069,7 +1069,7 @@ export function getGradeLimitMAT(
           return [54.13, 60.12, 'NH'];
         } else if (tw <= 63.11) {
           return [60.12, 63.11, 'H'];
-        } else if (tw <= 68.1) {
+        } else {
           return [63.11, 68.1, 'VH'];
         }
       }
@@ -1090,7 +1090,7 @@ export function getGradeLimitMAT(
           return [52.58, 57.02, 'NH'];
         } else if (tw <= 61.47) {
           return [57.02, 61.47, 'H'];
-        } else if (tw <= 65.91) {
+        } else {
           return [61.47, 65.91, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1106,7 +1106,7 @@ export function getGradeLimitMAT(
           return [51.76, 57.25, 'NH'];
         } else if (tw <= 62.75) {
           return [57.25, 62.75, 'H'];
-        } else if (tw <= 68.24) {
+        } else {
           return [62.75, 68.24, 'VH'];
         }
       }
@@ -1125,7 +1125,7 @@ export function getGradeLimitMAT(
           return [52.58, 57.02, 'NH'];
         } else if (tw <= 61.47) {
           return [57.02, 61.47, 'H'];
-        } else if (tw <= 65.91) {
+        } else {
           return [61.47, 65.91, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1141,7 +1141,7 @@ export function getGradeLimitMAT(
           return [51.76, 57.25, 'NH'];
         } else if (tw <= 62.75) {
           return [57.25, 62.75, 'H'];
-        } else if (tw <= 68.24) {
+        } else {
           return [62.75, 68.24, 'VH'];
         }
       }
@@ -1160,7 +1160,7 @@ export function getGradeLimitMAT(
           return [54.82, 59.32, 'NH'];
         } else if (tw <= 63.83) {
           return [59.32, 63.83, 'H'];
-        } else if (tw <= 68.3) {
+        } else {
           return [63.83, 68.3, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1176,7 +1176,7 @@ export function getGradeLimitMAT(
           return [54.22, 58.81, 'NH'];
         } else if (tw <= 63.39) {
           return [58.81, 63.39, 'H'];
-        } else if (tw <= 67.99) {
+        } else {
           return [63.39, 67.99, 'VH'];
         }
       }
@@ -1195,7 +1195,7 @@ export function getGradeLimitMAT(
           return [52.33, 57.28, 'NH'];
         } else if (tw <= 62.23) {
           return [57.28, 62.23, 'H'];
-        } else if (tw <= 67.14) {
+        } else {
           return [62.23, 67.14, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1211,7 +1211,7 @@ export function getGradeLimitMAT(
           return [52.17, 57.09, 'NH'];
         } else if (tw <= 62.02) {
           return [57.09, 62.02, 'H'];
-        } else if (tw <= 66.96) {
+        } else {
           return [62.02, 66.96, 'VH'];
         }
       }
@@ -1230,7 +1230,7 @@ export function getGradeLimitMAT(
           return [55.77, 60.42, 'NH'];
         } else if (tw <= 65.07) {
           return [60.42, 65.07, 'H'];
-        } else if (tw <= 68.09) {
+        } else {
           return [65.07, 68.09, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1246,7 +1246,7 @@ export function getGradeLimitMAT(
           return [55.95, 60.83, 'NH'];
         } else if (tw <= 65.71) {
           return [60.83, 65.71, 'H'];
-        } else if (tw <= 68.71) {
+        } else {
           return [65.71, 68.71, 'VH'];
         }
       }
@@ -1265,7 +1265,7 @@ export function getGradeLimitMAT(
           return [56.07, 60.81, 'NH'];
         } else if (tw <= 65.55) {
           return [60.81, 65.55, 'H'];
-        } else if (tw <= 68.53) {
+        } else {
           return [65.55, 68.53, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1281,7 +1281,7 @@ export function getGradeLimitMAT(
           return [55.98, 61.13, 'NH'];
         } else if (tw <= 66.29) {
           return [61.13, 66.29, 'H'];
-        } else if (tw <= 69.25) {
+        } else {
           return [66.29, 69.25, 'VH'];
         }
       }
@@ -1300,7 +1300,7 @@ export function getGradeLimitMAT(
           return [56.14, 60.53, 'NH'];
         } else if (tw <= 64.91) {
           return [60.53, 64.91, 'H'];
-        } else if (tw <= 67.89) {
+        } else {
           return [64.91, 67.89, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1316,7 +1316,7 @@ export function getGradeLimitMAT(
           return [56.1, 60.58, 'NH'];
         } else if (tw <= 65.07) {
           return [60.58, 65.07, 'H'];
-        } else if (tw <= 68.1) {
+        } else {
           return [65.07, 68.1, 'VH'];
         }
       }
@@ -1337,7 +1337,7 @@ export function getGradeLimitMAT(
           return [54.95, 57.45, 'NH'];
         } else if (tw <= 64.95) {
           return [57.45, 64.95, 'H'];
-        } else if (tw <= 69.95) {
+        } else {
           return [64.95, 69.95, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1353,7 +1353,7 @@ export function getGradeLimitMAT(
           return [53.79, 56.37, 'NH'];
         } else if (tw <= 65.77) {
           return [56.37, 65.77, 'H'];
-        } else if (tw <= 74.41) {
+        } else {
           return [65.77, 74.41, 'VH'];
         }
       }
@@ -1372,7 +1372,7 @@ export function getGradeLimitMAT(
           return [54.95, 57.45, 'NH'];
         } else if (tw <= 64.95) {
           return [57.45, 64.95, 'H'];
-        } else if (tw <= 69.95) {
+        } else {
           return [64.95, 69.95, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1388,7 +1388,7 @@ export function getGradeLimitMAT(
           return [53.79, 56.37, 'NH'];
         } else if (tw <= 65.77) {
           return [56.37, 65.77, 'H'];
-        } else if (tw <= 74.41) {
+        } else {
           return [65.77, 74.41, 'VH'];
         }
       }
@@ -1407,7 +1407,7 @@ export function getGradeLimitMAT(
           return [53.97, 59.31, 'NH'];
         } else if (tw <= 67.31) {
           return [59.31, 67.31, 'H'];
-        } else if (tw <= 70.0) {
+        } else {
           return [67.31, 70.0, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1423,7 +1423,7 @@ export function getGradeLimitMAT(
           return [53.91, 59.42, 'NH'];
         } else if (tw <= 64.93) {
           return [59.42, 64.93, 'H'];
-        } else if (tw <= 75.93) {
+        } else {
           return [64.93, 75.93, 'VH'];
         }
       }
@@ -1442,7 +1442,7 @@ export function getGradeLimitMAT(
           return [53.36, 59.01, 'NH'];
         } else if (tw <= 64.66) {
           return [59.01, 64.66, 'H'];
-        } else if (tw <= 67.47) {
+        } else {
           return [64.66, 67.47, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1458,7 +1458,7 @@ export function getGradeLimitMAT(
           return [51.56, 59.75, 'NH'];
         } else if (tw <= 65.22) {
           return [59.75, 65.22, 'H'];
-        } else if (tw <= 73.41) {
+        } else {
           return [65.22, 73.41, 'VH'];
         }
       }
@@ -1477,7 +1477,7 @@ export function getGradeLimitMAT(
           return [54.86, 57.65, 'NH'];
         } else if (tw <= 66.03) {
           return [57.65, 66.03, 'H'];
-        } else if (tw <= 69.05) {
+        } else {
           return [66.03, 69.05, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1493,7 +1493,7 @@ export function getGradeLimitMAT(
           return [52.91, 58.49, 'NH'];
         } else if (tw <= 64.08) {
           return [58.49, 64.08, 'H'];
-        } else if (tw <= 72.45) {
+        } else {
           return [64.08, 72.45, 'VH'];
         }
       }
@@ -1512,7 +1512,7 @@ export function getGradeLimitMAT(
           return [53.33, 58.71, 'NH'];
         } else if (tw <= 66.77) {
           return [58.71, 66.77, 'H'];
-        } else if (tw <= 69.75) {
+        } else {
           return [66.77, 69.75, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1528,7 +1528,7 @@ export function getGradeLimitMAT(
           return [53.78, 59.03, 'NH'];
         } else if (tw <= 64.28) {
           return [59.03, 64.28, 'H'];
-        } else if (tw <= 72.15) {
+        } else {
           return [64.28, 72.15, 'VH'];
         }
       }
@@ -1547,7 +1547,7 @@ export function getGradeLimitMAT(
           return [54.96, 60.32, 'NH'];
         } else if (tw <= 65.68) {
           return [60.32, 65.68, 'H'];
-        } else if (tw <= 68.69) {
+        } else {
           return [65.68, 68.69, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1563,7 +1563,7 @@ export function getGradeLimitMAT(
           return [52.81, 57.7, 'NH'];
         } else if (tw <= 66.87) {
           return [57.7, 66.87, 'H'];
-        } else if (tw <= 69.92) {
+        } else {
           return [66.87, 69.92, 'VH'];
         }
       }
@@ -1584,7 +1584,7 @@ export function getGradeLimitMAT(
           return [53.65, 58.4, 'NH'];
         } else if (tw <= 65.52) {
           return [58.4, 65.52, 'H'];
-        } else if (tw <= 71.45) {
+        } else {
           return [65.52, 71.45, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1600,7 +1600,7 @@ export function getGradeLimitMAT(
           return [54.65, 58.15, 'NH'];
         } else if (tw <= 65.14) {
           return [58.15, 65.14, 'H'];
-        } else if (tw <= 68.14) {
+        } else {
           return [65.14, 68.14, 'VH'];
         }
       }
@@ -1619,7 +1619,7 @@ export function getGradeLimitMAT(
           return [53.65, 58.4, 'NH'];
         } else if (tw <= 65.52) {
           return [58.4, 65.52, 'H'];
-        } else if (tw <= 71.45) {
+        } else {
           return [65.52, 71.45, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1635,7 +1635,7 @@ export function getGradeLimitMAT(
           return [54.65, 58.15, 'NH'];
         } else if (tw <= 65.14) {
           return [58.15, 65.14, 'H'];
-        } else if (tw <= 68.14) {
+        } else {
           return [65.14, 68.14, 'VH'];
         }
       }
@@ -1654,7 +1654,7 @@ export function getGradeLimitMAT(
           return [52.49, 58.8, 'NH'];
         } else if (tw <= 65.11) {
           return [58.8, 65.11, 'H'];
-        } else if (tw <= 68.26) {
+        } else {
           return [65.11, 68.26, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1670,7 +1670,7 @@ export function getGradeLimitMAT(
           return [55.56, 59.29, 'NH'];
         } else if (tw <= 63.02) {
           return [59.29, 63.02, 'H'];
-        } else if (tw <= 66.02) {
+        } else {
           return [63.02, 66.02, 'VH'];
         }
       }
@@ -1689,7 +1689,7 @@ export function getGradeLimitMAT(
           return [53.28, 59.53, 'NH'];
         } else if (tw <= 65.78) {
           return [59.53, 65.78, 'H'];
-        } else if (tw <= 68.75) {
+        } else {
           return [65.78, 68.75, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1705,7 +1705,7 @@ export function getGradeLimitMAT(
           return [56.2, 57.89, 'NH'];
         } else if (tw <= 60.89) {
           return [57.89, 60.89, 'H'];
-        } else if (tw <= 63.91) {
+        } else {
           return [60.89, 63.91, 'VH'];
         }
       }
@@ -1724,7 +1724,7 @@ export function getGradeLimitMAT(
           return [52.96, 59.19, 'NH'];
         } else if (tw <= 65.42) {
           return [59.19, 65.42, 'H'];
-        } else if (tw <= 68.45) {
+        } else {
           return [65.42, 68.45, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1740,7 +1740,7 @@ export function getGradeLimitMAT(
           return [56.0, 57.44, 'NH'];
         } else if (tw <= 60.44) {
           return [57.44, 60.44, 'H'];
-        } else if (tw <= 63.43) {
+        } else {
           return [60.44, 63.43, 'VH'];
         }
       }
@@ -1759,7 +1759,7 @@ export function getGradeLimitMAT(
           return [55.38, 58.42, 'NH'];
         } else if (tw <= 64.5) {
           return [58.42, 64.5, 'H'];
-        } else if (tw <= 67.55) {
+        } else {
           return [64.5, 67.55, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1775,7 +1775,7 @@ export function getGradeLimitMAT(
           return [56.43, 57.44, 'NH'];
         } else if (tw <= 60.44) {
           return [57.44, 60.44, 'H'];
-        } else if (tw <= 63.43) {
+        } else {
           return [60.44, 63.43, 'VH'];
         }
       }
@@ -1794,7 +1794,7 @@ export function getGradeLimitMAT(
           return [51.77, 60.95, 'NH'];
         } else if (tw <= 67.06) {
           return [60.95, 67.06, 'H'];
-        } else if (tw <= 70.07) {
+        } else {
           return [67.06, 70.07, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1810,7 +1810,7 @@ export function getGradeLimitMAT(
           return [54.6, 58.63, 'NH'];
         } else if (tw <= 62.66) {
           return [58.63, 62.66, 'H'];
-        } else if (tw <= 65.66) {
+        } else {
           return [62.66, 65.66, 'VH'];
         }
       }
@@ -1831,7 +1831,7 @@ export function getGradeLimitMAT(
           return [51.52, 58.51, 'NH'];
         } else if (tw <= 65.5) {
           return [58.51, 65.5, 'H'];
-        } else if (tw <= 72.49) {
+        } else {
           return [65.5, 72.49, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1847,7 +1847,7 @@ export function getGradeLimitMAT(
           return [52.9, 58.21, 'NH'];
         } else if (tw <= 64.92) {
           return [58.21, 64.92, 'H'];
-        } else if (tw <= 69.4) {
+        } else {
           return [64.92, 69.4, 'VH'];
         }
       }
@@ -1866,7 +1866,7 @@ export function getGradeLimitMAT(
           return [51.52, 58.51, 'NH'];
         } else if (tw <= 65.5) {
           return [58.51, 65.5, 'H'];
-        } else if (tw <= 72.49) {
+        } else {
           return [65.5, 72.49, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1882,7 +1882,7 @@ export function getGradeLimitMAT(
           return [52.9, 58.21, 'NH'];
         } else if (tw <= 64.92) {
           return [58.21, 64.92, 'H'];
-        } else if (tw <= 69.4) {
+        } else {
           return [64.92, 69.4, 'VH'];
         }
       }
@@ -1901,7 +1901,7 @@ export function getGradeLimitMAT(
           return [54.22, 56.78, 'NH'];
         } else if (tw <= 64.45) {
           return [56.78, 64.45, 'H'];
-        } else if (tw <= 72.1) {
+        } else {
           return [64.45, 72.1, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1917,7 +1917,7 @@ export function getGradeLimitMAT(
           return [52.72, 57.99, 'NH'];
         } else if (tw <= 65.91) {
           return [57.99, 65.91, 'H'];
-        } else if (tw <= 71.18) {
+        } else {
           return [65.91, 71.18, 'VH'];
         }
       }
@@ -1936,7 +1936,7 @@ export function getGradeLimitMAT(
           return [52.75, 57.89, 'NH'];
         } else if (tw <= 65.6) {
           return [57.89, 65.6, 'H'];
-        } else if (tw <= 70.78) {
+        } else {
           return [65.6, 70.78, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1952,7 +1952,7 @@ export function getGradeLimitMAT(
           return [53.9, 59.63, 'NH'];
         } else if (tw <= 65.36) {
           return [59.63, 65.36, 'H'];
-        } else if (tw <= 71.08) {
+        } else {
           return [65.36, 71.08, 'VH'];
         }
       }
@@ -1971,7 +1971,7 @@ export function getGradeLimitMAT(
           return [52.55, 57.93, 'NH'];
         } else if (tw <= 65.99) {
           return [57.93, 65.99, 'H'];
-        } else if (tw <= 71.37) {
+        } else {
           return [65.99, 71.37, 'VH'];
         }
       } else if (gender === 'female') {
@@ -1987,7 +1987,7 @@ export function getGradeLimitMAT(
           return [53.57, 59.07, 'NH'];
         } else if (tw <= 64.56) {
           return [59.07, 64.56, 'H'];
-        } else if (tw <= 70.04) {
+        } else {
           return [64.56, 70.04, 'VH'];
         }
       }
@@ -2006,7 +2006,7 @@ export function getGradeLimitMAT(
           return [53.62, 56.49, 'NH'];
         } else if (tw <= 65.11) {
           return [56.49, 65.11, 'H'];
-        } else if (tw <= 73.78) {
+        } else {
           return [65.11, 73.78, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2022,7 +2022,7 @@ export function getGradeLimitMAT(
           return [53.57, 58.82, 'NH'];
         } else if (tw <= 64.07) {
           return [58.82, 64.07, 'H'];
-        } else if (tw <= 69.32) {
+        } else {
           return [64.07, 69.32, 'VH'];
         }
       }
@@ -2041,7 +2041,7 @@ export function getGradeLimitMAT(
           return [52.45, 57.4, 'NH'];
         } else if (tw <= 64.83) {
           return [57.4, 64.83, 'H'];
-        } else if (tw <= 69.77) {
+        } else {
           return [64.83, 69.77, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2057,7 +2057,7 @@ export function getGradeLimitMAT(
           return [53.44, 58.32, 'NH'];
         } else if (tw <= 65.02) {
           return [58.32, 65.02, 'H'];
-        } else if (tw <= 68.08) {
+        } else {
           return [65.02, 68.08, 'VH'];
         }
       }
@@ -2078,7 +2078,7 @@ export function getGradeLimitMAT(
           return [53.64, 56.76, 'NH'];
         } else if (tw <= 66.11) {
           return [56.76, 66.11, 'H'];
-        } else if (tw <= 84.8) {
+        } else {
           return [66.11, 84.8, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2094,7 +2094,7 @@ export function getGradeLimitMAT(
           return [53.7, 60.26, 'NH'];
         } else if (tw <= 66.82) {
           return [60.26, 66.82, 'H'];
-        } else if (tw <= 86.49) {
+        } else {
           return [66.82, 86.49, 'VH'];
         }
       }
@@ -2113,7 +2113,7 @@ export function getGradeLimitMAT(
           return [53.64, 56.76, 'NH'];
         } else if (tw <= 66.11) {
           return [56.76, 66.11, 'H'];
-        } else if (tw <= 84.8) {
+        } else {
           return [66.11, 84.8, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2129,7 +2129,7 @@ export function getGradeLimitMAT(
           return [53.7, 60.26, 'NH'];
         } else if (tw <= 66.82) {
           return [60.26, 66.82, 'H'];
-        } else if (tw <= 86.49) {
+        } else {
           return [66.82, 86.49, 'VH'];
         }
       }
@@ -2148,7 +2148,7 @@ export function getGradeLimitMAT(
           return [52.69, 60.52, 'NH'];
         } else if (tw <= 65.74) {
           return [60.52, 65.74, 'H'];
-        } else if (tw <= 70.94) {
+        } else {
           return [65.74, 70.94, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2164,7 +2164,7 @@ export function getGradeLimitMAT(
           return [54.18, 59.45, 'NH'];
         } else if (tw <= 64.71) {
           return [59.45, 64.71, 'H'];
-        } else if (tw <= 69.99) {
+        } else {
           return [64.71, 69.99, 'VH'];
         }
       }
@@ -2183,7 +2183,7 @@ export function getGradeLimitMAT(
           return [54.06, 59.44, 'NH'];
         } else if (tw <= 64.81) {
           return [59.44, 64.81, 'H'];
-        } else if (tw <= 67.83) {
+        } else {
           return [64.81, 67.83, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2199,7 +2199,7 @@ export function getGradeLimitMAT(
           return [55.87, 58.78, 'NH'];
         } else if (tw <= 64.59) {
           return [58.78, 64.59, 'H'];
-        } else if (tw <= 67.58) {
+        } else {
           return [64.59, 67.58, 'VH'];
         }
       }
@@ -2218,7 +2218,7 @@ export function getGradeLimitMAT(
           return [54.65, 57.97, 'NH'];
         } else if (tw <= 62.26) {
           return [57.97, 62.26, 'H'];
-        } else if (tw <= 64.6) {
+        } else {
           return [62.26, 64.6, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2234,7 +2234,7 @@ export function getGradeLimitMAT(
           return [55.64, 59.4, 'NH'];
         } else if (tw <= 63.16) {
           return [59.4, 63.16, 'H'];
-        } else if (tw <= 66.16) {
+        } else {
           return [63.16, 66.16, 'VH'];
         }
       }
@@ -2253,7 +2253,7 @@ export function getGradeLimitMAT(
           return [52.87, 57.09, 'NH'];
         } else if (tw <= 61.31) {
           return [57.09, 61.31, 'H'];
-        } else if (tw <= 65.54) {
+        } else {
           return [61.31, 65.54, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2269,7 +2269,7 @@ export function getGradeLimitMAT(
           return [54.19, 58.69, 'NH'];
         } else if (tw <= 63.2) {
           return [58.69, 63.2, 'H'];
-        } else if (tw <= 66.2) {
+        } else {
           return [63.2, 66.2, 'VH'];
         }
       }
@@ -2288,7 +2288,7 @@ export function getGradeLimitMAT(
           return [52.82, 60.34, 'NH'];
         } else if (tw <= 64.1) {
           return [60.34, 64.1, 'H'];
-        } else if (tw <= 67.07) {
+        } else {
           return [64.1, 67.07, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2304,7 +2304,7 @@ export function getGradeLimitMAT(
           return [53.36, 57.67, 'NH'];
         } else if (tw <= 61.98) {
           return [57.67, 61.98, 'H'];
-        } else if (tw <= 64.96) {
+        } else {
           return [61.98, 64.96, 'VH'];
         }
       }
@@ -2325,7 +2325,7 @@ export function getGradeLimitMAT(
           return [52.77, 58.67, 'NH'];
         } else if (tw <= 64.57) {
           return [58.67, 64.57, 'H'];
-        } else if (tw <= 67.57) {
+        } else {
           return [64.57, 67.57, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2341,7 +2341,7 @@ export function getGradeLimitMAT(
           return [53.11, 59.32, 'NH'];
         } else if (tw <= 65.53) {
           return [59.32, 65.53, 'H'];
-        } else if (tw <= 68.53) {
+        } else {
           return [65.53, 68.53, 'VH'];
         }
       }
@@ -2360,7 +2360,7 @@ export function getGradeLimitMAT(
           return [52.77, 58.67, 'NH'];
         } else if (tw <= 64.57) {
           return [58.67, 64.57, 'H'];
-        } else if (tw <= 67.57) {
+        } else {
           return [64.57, 67.57, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2376,7 +2376,7 @@ export function getGradeLimitMAT(
           return [53.11, 59.32, 'NH'];
         } else if (tw <= 65.53) {
           return [59.32, 65.53, 'H'];
-        } else if (tw <= 68.53) {
+        } else {
           return [65.53, 68.53, 'VH'];
         }
       }
@@ -2395,7 +2395,7 @@ export function getGradeLimitMAT(
           return [53.47, 60.13, 'NH'];
         } else if (tw <= 63.47) {
           return [60.13, 63.47, 'H'];
-        } else if (tw <= 66.78) {
+        } else {
           return [63.47, 66.78, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2411,7 +2411,7 @@ export function getGradeLimitMAT(
           return [51.85, 58.82, 'NH'];
         } else if (tw <= 65.78) {
           return [58.82, 65.78, 'H'];
-        } else if (tw <= 68.8) {
+        } else {
           return [65.78, 68.8, 'VH'];
         }
       }
@@ -2430,7 +2430,7 @@ export function getGradeLimitMAT(
           return [51.79, 58.44, 'NH'];
         } else if (tw <= 65.08) {
           return [58.44, 65.08, 'H'];
-        } else if (tw <= 68.07) {
+        } else {
           return [65.08, 68.07, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2446,7 +2446,7 @@ export function getGradeLimitMAT(
           return [53.99, 57.59, 'NH'];
         } else if (tw <= 64.78) {
           return [57.59, 64.78, 'H'];
-        } else if (tw <= 68.8) {
+        } else {
           return [64.78, 68.8, 'VH'];
         }
       }
@@ -2465,7 +2465,7 @@ export function getGradeLimitMAT(
           return [52.58, 58.59, 'NH'];
         } else if (tw <= 65.0) {
           return [58.59, 65.0, 'H'];
-        } else if (tw <= 68.02) {
+        } else {
           return [65.0, 68.02, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2481,7 +2481,7 @@ export function getGradeLimitMAT(
           return [51.16, 58.18, 'NH'];
         } else if (tw <= 65.19) {
           return [58.18, 65.19, 'H'];
-        } else if (tw <= 68.18) {
+        } else {
           return [65.19, 68.18, 'VH'];
         }
       }
@@ -2500,7 +2500,7 @@ export function getGradeLimitMAT(
           return [54.55, 58.14, 'NH'];
         } else if (tw <= 65.3) {
           return [58.14, 65.3, 'H'];
-        } else if (tw <= 68.86) {
+        } else {
           return [65.3, 68.86, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2516,7 +2516,7 @@ export function getGradeLimitMAT(
           return [53.6, 58.67, 'NH'];
         } else if (tw <= 66.05) {
           return [58.67, 66.05, 'H'];
-        } else if (tw <= 69.05) {
+        } else {
           return [66.05, 69.05, 'VH'];
         }
       }
@@ -2535,7 +2535,7 @@ export function getGradeLimitMAT(
           return [54.4, 60.59, 'NH'];
         } else if (tw <= 66.78) {
           return [60.59, 66.78, 'H'];
-        } else if (tw <= 69.79) {
+        } else {
           return [66.78, 69.79, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2551,7 +2551,7 @@ export function getGradeLimitMAT(
           return [52.4, 59.16, 'NH'];
         } else if (tw <= 65.91) {
           return [59.16, 65.91, 'H'];
-        } else if (tw <= 68.92) {
+        } else {
           return [65.91, 68.92, 'VH'];
         }
       }
@@ -2572,7 +2572,7 @@ export function getGradeLimitMAT(
           return [53.53, 56.99, 'NH'];
         } else if (tw <= 67.37) {
           return [56.99, 67.37, 'H'];
-        } else if (tw <= 70.83) {
+        } else {
           return [67.37, 70.83, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2588,7 +2588,7 @@ export function getGradeLimitMAT(
           return [52.76, 56.08, 'NH'];
         } else if (tw <= 66.05) {
           return [56.08, 66.05, 'H'];
-        } else if (tw <= 69.37) {
+        } else {
           return [66.05, 69.37, 'VH'];
         }
       }
@@ -2607,7 +2607,7 @@ export function getGradeLimitMAT(
           return [53.53, 56.99, 'NH'];
         } else if (tw <= 67.37) {
           return [56.99, 67.37, 'H'];
-        } else if (tw <= 70.83) {
+        } else {
           return [67.37, 70.83, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2623,7 +2623,7 @@ export function getGradeLimitMAT(
           return [52.76, 56.08, 'NH'];
         } else if (tw <= 66.05) {
           return [56.08, 66.05, 'H'];
-        } else if (tw <= 69.37) {
+        } else {
           return [66.05, 69.37, 'VH'];
         }
       }
@@ -2643,7 +2643,7 @@ export function getGradeLimitMAT(
           return [53.86, 57.74, 'NH'];
         } else if (tw <= 64.89) {
           return [57.54, 64.89, 'H'];
-        } else if (tw <= 72.24) {
+        } else {
           return [64.89, 72.24, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2659,7 +2659,7 @@ export function getGradeLimitMAT(
           return [53.32, 56.97, 'NH'];
         } else if (tw <= 64.27) {
           return [56.97, 64.27, 'H'];
-        } else if (tw <= 71.6) {
+        } else {
           return [64.27, 71.6, 'VH'];
         }
       }
@@ -2678,7 +2678,7 @@ export function getGradeLimitMAT(
           return [52.09, 59.28, 'NH'];
         } else if (tw <= 62.88) {
           return [59.28, 62.88, 'H'];
-        } else if (tw <= 70.04) {
+        } else {
           return [62.88, 70.04, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2694,7 +2694,7 @@ export function getGradeLimitMAT(
           return [54.45, 57.99, 'NH'];
         } else if (tw <= 65.05) {
           return [57.99, 65.05, 'H'];
-        } else if (tw <= 68.62) {
+        } else {
           return [65.05, 68.62, 'VH'];
         }
       }
@@ -2713,7 +2713,7 @@ export function getGradeLimitMAT(
           return [52.66, 59.86, 'NH'];
         } else if (tw <= 63.45) {
           return [59.86, 63.45, 'H'];
-        } else if (tw <= 70.62) {
+        } else {
           return [63.45, 70.62, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2729,7 +2729,7 @@ export function getGradeLimitMAT(
           return [54.0, 57.64, 'NH'];
         } else if (tw <= 64.91) {
           return [57.64, 64.91, 'H'];
-        } else if (tw <= 68.59) {
+        } else {
           return [64.91, 68.59, 'VH'];
         }
       }
@@ -2748,7 +2748,7 @@ export function getGradeLimitMAT(
           return [53.62, 60.34, 'NH'];
         } else if (tw <= 63.69) {
           return [60.34, 63.69, 'H'];
-        } else if (tw <= 70.41) {
+        } else {
           return [63.69, 70.41, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2764,7 +2764,7 @@ export function getGradeLimitMAT(
           return [54.43, 58.0, 'NH'];
         } else if (tw <= 65.14) {
           return [58.0, 65.14, 'H'];
-        } else if (tw <= 68.73) {
+        } else {
           return [65.14, 68.73, 'VH'];
         }
       }
@@ -2783,7 +2783,7 @@ export function getGradeLimitMAT(
           return [53.13, 60.0, 'NH'];
         } else if (tw <= 63.44) {
           return [60.0, 63.44, 'H'];
-        } else if (tw <= 70.35) {
+        } else {
           return [63.44, 70.35, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2799,7 +2799,7 @@ export function getGradeLimitMAT(
           return [51.98, 58.81, 'NH'];
         } else if (tw <= 65.63) {
           return [58.81, 65.63, 'H'];
-        } else if (tw <= 69.0) {
+        } else {
           return [65.63, 69.0, 'VH'];
         }
       }
@@ -2813,7 +2813,7 @@ export function getGradeLimitPBT(
   gender: string,
   part: number,
 ): [number, number, string] {
-  console.log('getGradeLimitPBT', tw, month, gender, part);
+  // console.log('getGradeLimitPBT', tw);
   if (part === 1) {
     if (month >= 24 && month <= 35) {
       if (gender === 'male') {
@@ -2825,7 +2825,7 @@ export function getGradeLimitPBT(
           return [45.93, 56.64, 'N'];
         } else if (tw <= 60.21) {
           return [56.64, 60.21, 'H'];
-        } else if (tw <= 63.2) {
+        } else {
           return [60.21, 63.21, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2837,7 +2837,7 @@ export function getGradeLimitPBT(
           return [45.2, 57.28, 'N'];
         } else if (tw <= 60.72) {
           return [57.28, 60.72, 'H'];
-        } else if (tw <= 63.72) {
+        } else {
           return [60.72, 63.72, 'VH'];
         }
       }
@@ -2852,7 +2852,7 @@ export function getGradeLimitPBT(
           return [44.12, 58.2, 'N'];
         } else if (tw <= 61.73) {
           return [58.2, 61.73, 'H'];
-        } else if (tw <= 64.73) {
+        } else {
           return [61.73, 64.73, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2864,7 +2864,7 @@ export function getGradeLimitPBT(
           return [43.55, 57.73, 'N'];
         } else if (tw <= 61.28) {
           return [57.73, 61.28, 'H'];
-        } else if (tw <= 64.28) {
+        } else {
           return [61.28, 64.28, 'VH'];
         }
       }
@@ -2879,7 +2879,7 @@ export function getGradeLimitPBT(
           return [44.4, 54.64, 'N'];
         } else if (tw <= 64.88) {
           return [54.64, 64.88, 'H'];
-        } else if (tw <= 67.88) {
+        } else {
           return [64.88, 67.88, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2891,7 +2891,7 @@ export function getGradeLimitPBT(
           return [42.73, 57.27, 'N'];
         } else if (tw <= 64.55) {
           return [57.27, 64.55, 'H'];
-        } else if (tw <= 67.55) {
+        } else {
           return [64.55, 67.55, 'VH'];
         }
       }
@@ -2906,7 +2906,7 @@ export function getGradeLimitPBT(
           return [42.51, 56.85, 'N'];
         } else if (tw <= 64.01) {
           return [56.85, 64.01, 'H'];
-        } else if (tw <= 67.01) {
+        } else {
           return [64.01, 67.01, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2918,7 +2918,7 @@ export function getGradeLimitPBT(
           return [42.17, 57.15, 'N'];
         } else if (tw <= 64.64) {
           return [57.15, 64.64, 'H'];
-        } else if (tw <= 67.64) {
+        } else {
           return [64.64, 67.64, 'VH'];
         }
       }
@@ -2933,7 +2933,7 @@ export function getGradeLimitPBT(
           return [43.43, 58.03, 'N'];
         } else if (tw <= 65.33) {
           return [58.03, 65.33, 'H'];
-        } else if (tw <= 68.33) {
+        } else {
           return [65.33, 68.33, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2945,7 +2945,7 @@ export function getGradeLimitPBT(
           return [43.84, 55.31, 'N'];
         } else if (tw <= 65.34) {
           return [55.31, 65.34, 'H'];
-        } else if (tw <= 68.34) {
+        } else {
           return [65.34, 68.34, 'VH'];
         }
       }
@@ -2960,7 +2960,7 @@ export function getGradeLimitPBT(
           return [43.82, 55.41, 'N'];
         } else if (tw <= 63.13) {
           return [55.41, 63.13, 'H'];
-        } else if (tw <= 66.99) {
+        } else {
           return [63.13, 66.99, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2972,7 +2972,7 @@ export function getGradeLimitPBT(
           return [43.15, 57.32, 'N'];
         } else if (tw <= 62.83) {
           return [57.32, 62.83, 'H'];
-        } else if (tw <= 66.77) {
+        } else {
           return [62.83, 66.77, 'VH'];
         }
       }
@@ -2987,7 +2987,7 @@ export function getGradeLimitPBT(
           return [44.46, 56.09, 'N'];
         } else if (tw <= 63.84) {
           return [56.09, 63.84, 'H'];
-        } else if (tw <= 67.71) {
+        } else {
           return [63.84, 67.71, 'VH'];
         }
       } else if (gender === 'female') {
@@ -2999,7 +2999,7 @@ export function getGradeLimitPBT(
           return [45.84, 55.22, 'N'];
         } else if (tw <= 64.59) {
           return [55.22, 64.59, 'H'];
-        } else if (tw <= 67.59) {
+        } else {
           return [64.59, 67.59, 'VH'];
         }
       }
@@ -3016,7 +3016,7 @@ export function getGradeLimitPBT(
           return [43.18, 54.94, 'N'];
         } else if (tw <= 62.78) {
           return [54.94, 62.78, 'H'];
-        } else if (tw <= 94.16) {
+        } else {
           return [62.78, 94.16, 'VH'];
         }
       } else if (gender === 'female') {
@@ -3028,7 +3028,7 @@ export function getGradeLimitPBT(
           return [42.72, 55.49, 'N'];
         } else if (tw <= 64.0) {
           return [55.49, 64.0, 'H'];
-        } else if (tw <= 98.04) {
+        } else {
           return [64.0, 98.04, 'VH'];
         }
       }
@@ -3043,7 +3043,7 @@ export function getGradeLimitPBT(
           return [44.29, 56.19, 'N'];
         } else if (tw <= 64.13) {
           return [56.19, 64.13, 'H'];
-        } else if (tw <= 91.9) {
+        } else {
           return [64.13, 91.9, 'VH'];
         }
       } else if (gender === 'female') {
@@ -3055,7 +3055,7 @@ export function getGradeLimitPBT(
           return [45.12, 52.81, 'N'];
         } else if (tw <= 64.35) {
           return [52.81, 64.35, 'H'];
-        } else if (tw <= 91.27) {
+        } else {
           return [64.35, 91.27, 'VH'];
         }
       }
@@ -3070,7 +3070,7 @@ export function getGradeLimitPBT(
           return [42.8, 56.13, 'N'];
         } else if (tw <= 62.8) {
           return [56.13, 62.8, 'H'];
-        } else if (tw <= 79.47) {
+        } else {
           return [62.8, 79.47, 'VH'];
         }
       } else if (gender === 'female') {
@@ -3082,7 +3082,7 @@ export function getGradeLimitPBT(
           return [43.92, 54.52, 'N'];
         } else if (tw <= 65.12) {
           return [54.52, 65.12, 'H'];
-        } else if (tw <= 82.79) {
+        } else {
           return [65.12, 82.79, 'VH'];
         }
       }
@@ -3097,7 +3097,7 @@ export function getGradeLimitPBT(
           return [43.8, 54.74, 'N'];
         } else if (tw <= 62.04) {
           return [54.74, 62.04, 'H'];
-        } else if (tw <= 83.94) {
+        } else {
           return [62.04, 83.94, 'VH'];
         }
       } else if (gender === 'female') {
@@ -3109,7 +3109,7 @@ export function getGradeLimitPBT(
           return [44.08, 55.62, 'N'];
         } else if (tw <= 63.31) {
           return [55.62, 63.31, 'H'];
-        } else if (tw <= 86.38) {
+        } else {
           return [63.31, 86.38, 'VH'];
         }
       }
@@ -3124,7 +3124,7 @@ export function getGradeLimitPBT(
           return [43.12, 57.16, 'N'];
         } else if (tw <= 64.18) {
           return [57.16, 64.18, 'H'];
-        } else if (tw <= 81.72) {
+        } else {
           return [64.18, 81.72, 'VH'];
         }
       } else if (gender === 'female') {
@@ -3136,7 +3136,7 @@ export function getGradeLimitPBT(
           return [43.67, 54.78, 'N'];
         } else if (tw <= 62.19) {
           return [54.78, 62.19, 'H'];
-        } else if (tw <= 84.41) {
+        } else {
           return [62.19, 84.41, 'VH'];
         }
       }
@@ -3151,7 +3151,7 @@ export function getGradeLimitPBT(
           return [42.26, 56.2, 'N'];
         } else if (tw <= 63.17) {
           return [56.2, 63.17, 'H'];
-        } else if (tw <= 80.59) {
+        } else {
           return [63.17, 80.59, 'VH'];
         }
       } else if (gender === 'female') {
@@ -3163,7 +3163,7 @@ export function getGradeLimitPBT(
           return [46.16, 56.92, 'N'];
         } else if (tw <= 60.5) {
           return [56.92, 60.5, 'H'];
-        } else if (tw <= 82.01) {
+        } else {
           return [60.5, 82.01, 'VH'];
         }
       }
@@ -3178,7 +3178,7 @@ export function getGradeLimitPBT(
           return [44.09, 55.91, 'N'];
         } else if (tw <= 63.78) {
           return [55.91, 63.78, 'H'];
-        } else if (tw <= 83.46) {
+        } else {
           return [63.78, 83.46, 'VH'];
         }
       } else if (gender === 'female') {
@@ -3190,7 +3190,7 @@ export function getGradeLimitPBT(
           return [44.77, 56.05, 'N'];
         } else if (tw <= 63.57) {
           return [56.05, 63.57, 'H'];
-        } else if (tw <= 82.37) {
+        } else {
           return [63.57, 82.37, 'VH'];
         }
       }
@@ -3207,7 +3207,7 @@ export function getGradeLimitPBT(
           return [43.82, 53.48, 'N'];
         } else if (tw <= 66.14) {
           return [53.48, 66.14, 'H'];
-        } else if (tw <= 116.77) {
+        } else {
           return [66.14, 116.77, 'VH'];
         }
       } else if (gender === 'female') {
@@ -3219,7 +3219,7 @@ export function getGradeLimitPBT(
           return [46.06, 51.94, 'N'];
         } else if (tw <= 63.71) {
           return [51.94, 63.71, 'H'];
-        } else if (tw <= 110.76) {
+        } else {
           return [63.71, 110.76, 'VH'];
         }
       }
@@ -3234,7 +3234,7 @@ export function getGradeLimitPBT(
           return [43.88, 56.0, 'N'];
         } else if (tw <= 62.06) {
           return [56.0, 62.06, 'H'];
-        } else if (tw <= 110.55) {
+        } else {
           return [62.06, 110.55, 'VH'];
         }
       } else if (gender === 'female') {
@@ -3246,7 +3246,7 @@ export function getGradeLimitPBT(
           return [44.94, 50.56, 'N'];
         } else if (tw <= 66.86) {
           return [50.56, 66.86, 'H'];
-        } else if (tw <= 106.74) {
+        } else {
           return [66.86, 106.74, 'VH'];
         }
       }
@@ -3261,7 +3261,7 @@ export function getGradeLimitPBT(
           return [43.49, 56.42, 'N'];
         } else if (tw <= 65.04) {
           return [56.42, 65.04, 'H'];
-        } else if (tw <= 86.59) {
+        } else {
           return [65.04, 86.59, 'VH'];
         }
       } else if (gender === 'female') {
@@ -3273,7 +3273,7 @@ export function getGradeLimitPBT(
           return [44.55, 54.11, 'N'];
         } else if (tw <= 63.68) {
           return [54.11, 63.68, 'H'];
-        } else if (tw <= 92.39) {
+        } else {
           return [63.68, 92.39, 'VH'];
         }
       }
@@ -3288,7 +3288,7 @@ export function getGradeLimitPBT(
           return [44.04, 54.14, 'N'];
         } else if (tw <= 64.24) {
           return [54.14, 64.24, 'H'];
-        } else if (tw <= 94.55) {
+        } else {
           return [64.24, 94.55, 'VH'];
         }
       } else if (gender === 'female') {
@@ -3300,7 +3300,7 @@ export function getGradeLimitPBT(
           return [44.48, 55.41, 'N'];
         } else if (tw <= 60.87) {
           return [55.41, 60.87, 'H'];
-        } else if (tw <= 99.13) {
+        } else {
           return [60.87, 99.13, 'VH'];
         }
       }
@@ -3315,7 +3315,7 @@ export function getGradeLimitPBT(
           return [42.03, 57.26, 'N'];
         } else if (tw <= 62.34) {
           return [57.26, 62.34, 'H'];
-        } else if (tw <= 92.79) {
+        } else {
           return [62.34, 92.79, 'VH'];
         }
       } else if (gender === 'female') {
@@ -3327,7 +3327,7 @@ export function getGradeLimitPBT(
           return [43.24, 53.88, 'N'];
         } else if (tw <= 64.52) {
           return [53.88, 64.52, 'H'];
-        } else if (tw <= 96.44) {
+        } else {
           return [64.52, 96.44, 'VH'];
         }
       }
@@ -3342,7 +3342,7 @@ export function getGradeLimitPBT(
           return [45.2, 55.2, 'N'];
         } else if (tw <= 60.2) {
           return [55.2, 60.2, 'H'];
-        } else if (tw <= 90.2) {
+        } else {
           return [60.2, 90.2, 'VH'];
         }
       } else if (gender === 'female') {
@@ -3354,7 +3354,7 @@ export function getGradeLimitPBT(
           return [45.88, 56.19, 'N'];
         } else if (tw <= 61.34) {
           return [56.19, 61.34, 'H'];
-        } else if (tw <= 92.27) {
+        } else {
           return [61.34, 92.27, 'VH'];
         }
       }
@@ -3369,7 +3369,7 @@ export function getGradeLimitPBT(
           return [43.4, 54.04, 'N'];
         } else if (tw <= 64.68) {
           return [54.04, 64.68, 'H'];
-        } else if (tw <= 91.28) {
+        } else {
           return [64.68, 91.28, 'VH'];
         }
       } else if (gender === 'female') {
@@ -3381,7 +3381,7 @@ export function getGradeLimitPBT(
           return [44.55, 54.03, 'N'];
         } else if (tw <= 58.77) {
           return [54.03, 58.77, 'H'];
-        } else if (tw <= 87.2) {
+        } else {
           return [58.77, 87.2, 'VH'];
         }
       }
@@ -3398,7 +3398,7 @@ export function getGradeLimitPBT(
           return [45.48, 58.22, 'N'];
         } else if (tw <= 64.59) {
           return [58.22, 64.59, 'H'];
-        } else if (tw <= 83.69) {
+        } else {
           return [64.59, 83.69, 'VH'];
         }
       } else if (gender === 'female') {
@@ -3410,7 +3410,7 @@ export function getGradeLimitPBT(
           return [46.15, 58.57, 'N'];
         } else if (tw <= 64.78) {
           return [58.57, 64.78, 'H'];
-        } else if (tw <= 84.42) {
+        } else {
           return [64.78, 84.42, 'VH'];
         }
       }
@@ -3425,7 +3425,7 @@ export function getGradeLimitPBT(
           return [48.45, 54.2, 'N'];
         } else if (tw <= 59.94) {
           return [54.2, 59.94, 'H'];
-        } else if (tw <= 82.93) {
+        } else {
           return [59.94, 82.93, 'VH'];
         }
       } else if (gender === 'female') {
@@ -3437,7 +3437,7 @@ export function getGradeLimitPBT(
           return [47.92, 53.54, 'N'];
         } else if (tw <= 64.78) {
           return [53.54, 64.78, 'H'];
-        } else if (tw <= 81.63) {
+        } else {
           return [64.78, 81.63, 'VH'];
         }
       }
@@ -3452,7 +3452,7 @@ export function getGradeLimitPBT(
           return [43.7, 54.11, 'N'];
         } else if (tw <= 64.53) {
           return [54.11, 64.53, 'H'];
-        } else if (tw <= 85.36) {
+        } else {
           return [64.53, 85.36, 'VH'];
         }
       } else if (gender === 'female') {
@@ -3464,7 +3464,7 @@ export function getGradeLimitPBT(
           return [42.68, 52.99, 'N'];
         } else if (tw <= 63.3) {
           return [52.99, 63.3, 'H'];
-        } else if (tw <= 83.92) {
+        } else {
           return [63.3, 83.92, 'VH'];
         }
       }
@@ -3479,7 +3479,7 @@ export function getGradeLimitPBT(
           return [45.58, 56.11, 'N'];
         } else if (tw <= 61.37) {
           return [56.11, 61.37, 'H'];
-        } else if (tw <= 82.42) {
+        } else {
           return [61.37, 82.42, 'VH'];
         }
       } else if (gender === 'female') {
@@ -3491,7 +3491,7 @@ export function getGradeLimitPBT(
           return [46.33, 57.44, 'N'];
         } else if (tw <= 63.0) {
           return [57.44, 63.0, 'H'];
-        } else if (tw <= 85.22) {
+        } else {
           return [63.0, 85.22, 'VH'];
         }
       }
@@ -3506,7 +3506,7 @@ export function getGradeLimitPBT(
           return [46.03, 56.61, 'N'];
         } else if (tw <= 61.9) {
           return [56.61, 61.9, 'H'];
-        } else if (tw <= 83.07) {
+        } else {
           return [61.9, 83.07, 'VH'];
         }
       } else if (gender === 'female') {
@@ -3518,7 +3518,7 @@ export function getGradeLimitPBT(
           return [46.11, 56.92, 'N'];
         } else if (tw <= 62.32) {
           return [56.92, 62.32, 'H'];
-        } else if (tw <= 83.95) {
+        } else {
           return [62.32, 83.95, 'VH'];
         }
       }
@@ -3533,7 +3533,7 @@ export function getGradeLimitPBT(
           return [44.19, 54.04, 'N'];
         } else if (tw <= 63.89) {
           return [54.04, 63.89, 'H'];
-        } else if (tw <= 83.6) {
+        } else {
           return [63.89, 83.6, 'VH'];
         }
       } else if (gender === 'female') {
@@ -3545,7 +3545,7 @@ export function getGradeLimitPBT(
           return [43.76, 52.51, 'N'];
         } else if (tw <= 63.44) {
           return [52.51, 63.44, 'H'];
-        } else if (tw <= 85.3) {
+        } else {
           return [63.44, 85.3, 'VH'];
         }
       }
@@ -3560,7 +3560,7 @@ export function getGradeLimitPBT(
           return [42.72, 53.59, 'N'];
         } else if (tw <= 60.65) {
           return [53.59, 60.65, 'H'];
-        } else if (tw <= 86.2) {
+        } else {
           return [60.65, 86.2, 'VH'];
         }
       } else if (gender === 'female') {
@@ -3572,7 +3572,7 @@ export function getGradeLimitPBT(
           return [42.9, 53.66, 'N'];
         } else if (tw <= 64.41) {
           return [53.66, 64.41, 'H'];
-        } else if (tw <= 85.91) {
+        } else {
           return [64.41, 85.91, 'VH'];
         }
       }

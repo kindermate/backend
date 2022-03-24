@@ -1,10 +1,9 @@
-import * as mongoose from 'mongoose';
 import { Member } from '@/members/member.schema';
 import { User } from '@/users/user.schema';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Result, ResultSchema } from './schema/result.schema';
+import { Result } from './schema/result.schema';
 import { Commentary } from './schema/commentary.schema';
 import { Extra } from './schema/extra.schema';
 
@@ -24,12 +23,11 @@ export class ResultsService {
   ) {}
 
   async getResultAll(id: string) {
-    const ResultModel = mongoose.model('results', ResultSchema);
     const user = await this.userModel.findById(id);
     const members = await this.memberModel
       .find({ parent: user._id })
-      .populate('results', ResultModel);
-    console.log(members);
+      .populate({ path: 'results', options: { sort: { createdAt: -1 } } });
+    // console.log(members);
     // const results = await this.resultModel.find({ owner: member._id });
     return members;
   }
