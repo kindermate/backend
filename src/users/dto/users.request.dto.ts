@@ -24,5 +24,11 @@ export class UserRequestDto {
   gender: string;
 
   @IsString()
+  address1: string;
+
+  @IsString()
+  address2: string;
+
+  @IsString()
   recommander: string;
 }

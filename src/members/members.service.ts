@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { MemberCreateDto } from './dto/members.create.dto';
+import { MemberUpdateDto } from './dto/members.update.dto';
 import { Member } from './member.schema';
 
 @Injectable()
@@ -16,6 +17,19 @@ export class MembersService {
     const user = await this.usersRepository.findUserByIdWithoutPassword(id);
     const members = await this.membersModel.find({ parent: user._id });
     return members;
+  }
+
+  async updateMember(body: MemberUpdateDto) {
+    const { id, name } = body;
+    return await this.membersModel.findByIdAndUpdate(
+      id,
+      { name },
+      { new: true },
+    );
+  }
+
+  async deleteMember(id: string) {
+    return await this.membersModel.findByIdAndDelete(id);
   }
 
   async createMember(payload: MemberCreateDto) {

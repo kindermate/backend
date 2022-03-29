@@ -2,12 +2,15 @@ import { SuccessInterceptor } from '@/common/interceptors/success.interceptor';
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   Post,
+  Put,
   UseInterceptors,
 } from '@nestjs/common';
 import { MemberCreateDto } from './dto/members.create.dto';
+import { MemberUpdateDto } from './dto/members.update.dto';
 import { MembersService } from './members.service';
 
 @Controller('members')
@@ -18,6 +21,16 @@ export class MembersController {
   @Get(':id')
   async getMembers(@Param('id') id: string) {
     return this.membersService.getMembers(id);
+  }
+
+  @Put()
+  async updateMember(@Body() body: MemberUpdateDto) {
+    return this.membersService.updateMember(body);
+  }
+
+  @Delete(':id')
+  async deleteMember(@Param('id') id: string) {
+    return this.membersService.deleteMember(id);
   }
 
   @Post('create')

@@ -15,6 +15,7 @@ import { LoginRequestDto } from '@/auth/dto/login.request.dto';
 import { JwtAuthGuard } from '@/auth/jwt/jwt.guard';
 import { CurrentUser } from '@/common/decorators/user.decorator';
 import { User } from './user.schema';
+import { CheckPasswordDto } from '@/auth/dto/checkPassword.dto';
 
 @Controller('users')
 @UseInterceptors(SuccessInterceptor)
@@ -24,28 +25,29 @@ export class UsersController {
     private readonly authService: AuthService,
   ) {}
 
-  @ApiOperation({ summary: '전체 유저 가져오기' })
   @Get('all')
   async getAllUsers() {
     return this.usersService.getAllUsers();
   }
 
-  @ApiOperation({ summary: '현재 유저 가져오기' })
   @UseGuards(JwtAuthGuard)
   @Get()
   getCurrentUser(@CurrentUser() user: User) {
     return user.readOnlyData;
   }
 
-  @ApiOperation({ summary: '회원가입' })
   @Post('join')
   async join(@Body() body: UserRequestDto) {
     return await this.usersService.signUp(body);
   }
 
-  @ApiOperation({ summary: '로그인' })
   @Post('login')
   async login(@Body() data: LoginRequestDto) {
     return await this.authService.jwtLogin(data);
+  }
+
+  @Post('check-password')
+  async checkPassword(@Body() data: CheckPasswordDto) {
+    return await this.authService.checkPassword(data);
   }
 }

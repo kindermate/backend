@@ -14,8 +14,17 @@ export class UsersService {
 
   // 회원가입
   async signUp(body: UserRequestDto) {
-    const { username, nickname, email, password, birth, gender, recommander } =
-      body;
+    const {
+      username,
+      nickname,
+      email,
+      password,
+      birth,
+      gender,
+      address1,
+      address2,
+      recommander,
+    } = body;
     const isUserExist = await this.usersRepository.existByEmail(email);
 
     if (isUserExist) {
@@ -31,6 +40,8 @@ export class UsersService {
       password: hashedPassword,
       birth,
       gender,
+      address1,
+      address2,
       recommander,
     });
 

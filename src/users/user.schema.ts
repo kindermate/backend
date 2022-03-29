@@ -37,6 +37,12 @@ export class User extends Document {
   gender: string;
 
   @Prop()
+  address1: string;
+
+  @Prop()
+  address2: string;
+
+  @Prop()
   @IsString()
   recommander: string;
 
@@ -51,6 +57,11 @@ export class User extends Document {
     username: string;
     nickname: string;
     email: string;
+    birth: string;
+    gender: string;
+    address1: string;
+    address2: string;
+    recommander: string;
   };
 }
 
@@ -62,6 +73,11 @@ _UserSchema.virtual('readOnlyData').get(function (this: User) {
     username: this.username,
     nickname: this.nickname,
     email: this.email,
+    birth: this.birth,
+    gender: this.gender,
+    address1: this.address1,
+    address2: this.address2,
+    recommander: this.recommander,
   };
 });
 

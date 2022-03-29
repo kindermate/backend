@@ -16,8 +16,14 @@ export const UserOptions = {
     birth: { position: 4 },
     gender: { position: 5 },
     country: { position: 6 },
-    recommander: { position: 7 },
-    createdAt: { position: 8 },
-    updatedAt: { position: 9 },
+    address1: { position: 7 },
+    address2: { position: 8 },
+    recommander: { position: 9 },
+    createdAt: { position: 10 },
+    updatedAt: { position: 11 },
+  },
+  sort: {
+    sortBy: 'createdAt',
+    direction: 'desc',
   },
 };

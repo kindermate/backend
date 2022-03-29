@@ -13,5 +13,10 @@ export const MemberOptions = {
     gender: { position: 5 },
     createdAt: { position: 6 },
     updatedAt: { isVisible: false },
+    avatar: { isVisible: false },
+  },
+  sort: {
+    sortBy: 'createdAt',
+    direction: 'desc',
   },
 };
