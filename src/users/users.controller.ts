@@ -6,6 +6,8 @@ import {
   Param,
   Post,
   Put,
+  Query,
+  UnauthorizedException,
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
@@ -18,8 +20,6 @@ import { CurrentUser } from '@/common/decorators/user.decorator';
 import { User } from './user.schema';
 import { CheckPasswordDto } from '@/auth/dto/checkPassword.dto';
 import { UserUpdateDto } from './dto/users.update.dto';
-import { Types } from 'mongoose';
-import { UserChangePasswordDto } from './dto/users.changePassword.dto';
 
 @Controller('users')
 @UseInterceptors(SuccessInterceptor)
@@ -43,6 +43,15 @@ export class UsersController {
   @Put(':id')
   async updateUser(@Param('id') id: string, @Body() userData: UserUpdateDto) {
     return await this.usersService.updateUser(id, userData);
+  }
+
+  @Get('check-username')
+  async duplicateCheckUsername(@Query() query: object) {
+    const username = query['username'];
+    if (!username) {
+      throw new UnauthorizedException('Username is empty');
+    }
+    return await this.usersService.duplicateCheckUsername(username);
   }
 
   @Post('join')

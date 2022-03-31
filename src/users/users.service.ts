@@ -57,6 +57,15 @@ export class UsersService {
     return user.readOnlyData;
   }
 
+  // username 중복체크
+  async duplicateCheckUsername(username: string) {
+    const result = await this.userModel.exists({ username });
+    if (result) {
+      throw new UnauthorizedException('Username already exists.');
+    }
+    return 'Username is available.';
+  }
+
   // 회원 정보 수정
   async updateUser(id: string, userData: UserUpdateDto) {
     const user = await this.userModel.findByIdAndUpdate(id, userData, {
