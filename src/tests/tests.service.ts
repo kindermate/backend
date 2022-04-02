@@ -38,11 +38,13 @@ export class TestsService {
   }
 
   async createAnswer(body: AnswerCreateDto): Promise<Answer> {
-    const { _id, birth, gender } = await this.memberModel.findById({
+    const member = await this.memberModel.findById({
       _id: body.owner,
     });
-    // console.log(_id, birth, gender);
-    // console.log(body.answers);
+
+    const _id = member._id;
+    const birth = member.birth;
+    const gender = member.gender;
 
     // 결과 생성/저장
     const results = makeResultData(birth, gender, body.answers);
@@ -66,6 +68,11 @@ export class TestsService {
       owner: _id,
       answers: body.answers,
     });
+
+    // 멤버 hasActiveMission 변경
+    member.hasActiveMission = true;
+    await member.save();
+
     return answer;
   }
 }

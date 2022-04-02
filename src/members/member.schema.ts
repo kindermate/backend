@@ -40,6 +40,11 @@ export class Member extends Document {
 
   @Prop()
   avatar: number;
+
+  @Prop({
+    default: false,
+  })
+  hasActiveMission: boolean;
 }
 
 const _MemberSchema = SchemaFactory.createForClass(Member);

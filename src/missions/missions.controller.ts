@@ -1,19 +1,16 @@
 import { SuccessInterceptor } from '@/common/interceptors/success.interceptor';
-import {
-  Body,
-  Controller,
-  Get,
-  Param,
-  Post,
-  Query,
-  UseInterceptors,
-} from '@nestjs/common';
+import { Controller, Get, Param, Query, UseInterceptors } from '@nestjs/common';
 import { MissionsService } from './missions.service';
 
 @Controller('missions')
 @UseInterceptors(SuccessInterceptor)
 export class MissionsController {
   constructor(private readonly missionService: MissionsService) {}
+
+  @Get('recent/:id')
+  async getRecentMission(@Param('id') id: string) {
+    return id;
+  }
 
   @Get('weeks')
   async getMissionSet(@Query() query: object) {

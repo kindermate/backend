@@ -16,6 +16,8 @@ export class MembersService {
   async getMembers(id: string) {
     const user = await this.usersRepository.findUserByIdWithoutPassword(id);
     const members = await this.membersModel.find({ parent: user._id });
+    console.log(members);
+
     return members;
   }
 
