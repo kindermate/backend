@@ -1,3 +1,6 @@
+import { Mission } from '@/missions/schema/mission.schema';
+import { Result } from '@/results/schema/result.schema';
+import { Answer } from '@/tests/schema/answer.schema';
 import { UsersRepository } from '@/users/users.repository';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
@@ -9,15 +12,20 @@ import { Member } from './member.schema';
 @Injectable()
 export class MembersService {
   constructor(
-    @InjectModel(Member.name) private readonly membersModel: Model<Member>,
+    @InjectModel(Member.name)
+    private readonly membersModel: Model<Member>,
     private readonly usersRepository: UsersRepository,
+    @InjectModel(Answer.name)
+    private readonly answersModel: Model<Answer>,
+    @InjectModel(Result.name)
+    private readonly resultsModel: Model<Result>,
+    @InjectModel(Mission.name)
+    private readonly missionsModel: Model<Mission>,
   ) {}
 
   async getMembers(id: string) {
     const user = await this.usersRepository.findUserByIdWithoutPassword(id);
     const members = await this.membersModel.find({ parent: user._id });
-    console.log(members);
-
     return members;
   }
 
@@ -31,6 +39,14 @@ export class MembersService {
   }
 
   async deleteMember(id: string) {
+    const member = await this.membersModel.findById(id);
+    // 답안 삭제
+    await this.answersModel.deleteMany({ owner: member._id });
+    // 결과 삭제
+    await this.resultsModel.deleteMany({ owner: member._id });
+    // 미션 삭제
+    await this.missionsModel.deleteMany({ owner: member._id });
+    // 멤버 삭제
     return await this.membersModel.findByIdAndDelete(id);
   }
 

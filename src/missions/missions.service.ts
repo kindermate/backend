@@ -1,7 +1,7 @@
 // import * as mongoose from 'mongoose';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import { Mission } from './schema/mission.schema';
 import { User } from '@/users/user.schema';
 import { Member } from '@/members/member.schema';
@@ -22,6 +22,22 @@ export class MissionsService {
     @InjectModel(Rating.name)
     private readonly ratingModel: Model<Rating>,
   ) {}
+
+  async getRecentMissions(id: string | Types.ObjectId) {
+    // user id 조회
+    const user = await this.userModel.findById(id);
+    // 미션 진행 중인 member 조회
+    const members = await this.memberModel
+      .find({
+        parent: user._id,
+        hasActiveMission: true,
+      })
+      .populate({
+        path: 'missions',
+        options: { sort: { createdAt: -1 } },
+      });
+    return members;
+  }
 
   async getMembersWithMissions(id: string) {
     const user = await this.userModel.findById(id);
@@ -53,7 +69,7 @@ export class MissionsService {
       .populate('tasksNormal', 'title description tags term infant student')
       .populate('tasksLow', 'title description tags term infant student');
     // 미션 정보 생성
-    console.log(missionSet);
+    // console.log(missionSet);
     const mission = {
       code: missionSet.code,
       name: missionSet.name,

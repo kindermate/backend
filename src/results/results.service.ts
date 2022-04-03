@@ -86,12 +86,4 @@ export class ResultsService {
 
     return result;
   }
-
-  async getResultOne(id: string) {
-    return;
-  }
-
-  async createResult(result) {
-    return;
-  }
 }

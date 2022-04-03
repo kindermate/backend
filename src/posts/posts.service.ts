@@ -12,7 +12,9 @@ export class PostsService {
   ) {}
 
   async getAllPost(query) {
-    const posts = await this.postModel.find(query);
+    const posts = await this.postModel
+      .find(query)
+      .sort({ isImportant: -1, createdAt: -1 });
     return posts;
   }
 

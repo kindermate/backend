@@ -59,6 +59,13 @@ export class Post extends Document {
   })
   @IsBoolean()
   @IsOptional()
+  isImportant: boolean;
+
+  @Prop({
+    default: false,
+  })
+  @IsBoolean()
+  @IsOptional()
   isDocument: boolean;
 }
 

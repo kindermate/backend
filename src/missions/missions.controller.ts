@@ -9,7 +9,7 @@ export class MissionsController {
 
   @Get('recent/:id')
   async getRecentMission(@Param('id') id: string) {
-    return id;
+    return await this.missionService.getRecentMissions(id);
   }
 
   @Get('weeks')
