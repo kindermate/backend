@@ -43,7 +43,7 @@ export class RatingsService {
       code,
       week,
     });
-    // 기존 Rating이 존재할 때
+    // 기존 Rating이 없을때
     if (!existRating) {
       const newRating = await this.ratingModel.create({
         mission: mission._id,
@@ -54,14 +54,9 @@ export class RatingsService {
 
       return newRating;
     } else {
-      const oldRating = await this.ratingModel.findOneAndUpdate(
-        id,
-        {
-          $set: { rating },
-        },
-        { new: true },
-      );
-      return oldRating;
+      existRating.rating = rating;
+      await existRating.save();
+      return existRating;
     }
   }
 }
