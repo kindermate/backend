@@ -4,4 +4,5 @@ import { Memo } from '../schema/memo.schema';
 export class MemoCreateDto extends PickType(Memo, [
   'mission',
   'content',
+  'week',
 ] as const) {}

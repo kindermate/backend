@@ -16,6 +16,9 @@ export class Memo extends Document {
 
   @Prop()
   content: string;
+
+  @Prop()
+  week: number;
 }
 
 export const MemoSchema = SchemaFactory.createForClass(Memo);
