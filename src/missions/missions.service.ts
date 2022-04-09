@@ -7,6 +7,7 @@ import { User } from '@/users/user.schema';
 import { Member } from '@/members/member.schema';
 import { Week } from './schema/week.schema';
 import { Rating } from '../ratings/schema/rating.schema';
+import * as moment from 'moment';
 
 @Injectable()
 export class MissionsService {
@@ -22,6 +23,16 @@ export class MissionsService {
     @InjectModel(Rating.name)
     private readonly ratingModel: Model<Rating>,
   ) {}
+
+  // 임시: start date 추가
+  async addStartDate() {
+    const missions = await this.missionModel.find({});
+    missions.forEach(async (mission) => {
+      console.log(mission['createdAt']);
+      mission.startDate = mission['createdAt'];
+      await mission.save();
+    });
+  }
 
   async getRecentMissions(id: string | Types.ObjectId) {
     // user id 조회
@@ -41,23 +52,70 @@ export class MissionsService {
 
   async getMembersWithMissions(id: string) {
     const user = await this.userModel.findById(id);
-    const members = await this.memberModel
-      .find(
-        { parent: user._id },
-        {
-          avatar: 1,
-          birth: 1,
-          gender: 1,
-          name: 1,
-          results: 1,
-        },
-      )
+
+    const members = await this.memberModel.find(
+      { parent: user._id },
+      {
+        avatar: 1,
+        birth: 1,
+        gender: 1,
+        name: 1,
+      },
+    );
+
+    // mission 주차 처리
+    // members.forEach(async (member) => {
+    //   await this.handleMissionWeek(member);
+    // });
+
+    const finalMembers = await this.memberModel
+      .find({ parent: user._id }, { avatar: 1, birth: 1, gender: 1, name: 1 })
       .populate({
         path: 'missions',
         options: { sort: { createdAt: -1 } },
         populate: { path: 'result', select: 'results' },
       });
-    return members;
+
+    return finalMembers;
+  }
+
+  async updateMissionWeek(id: string) {
+    const mission = await this.missionModel.findById(id);
+
+    // 최종 미션 시작일 대비 오늘 비교하여 몇주차 인지 체크
+    const today = moment(new Date());
+    const diff = today.diff(mission.startDate, 'weeks');
+    if (diff > 0) {
+      mission.week = mission.week + diff;
+      mission.startDate = moment(mission.startDate).add(7, 'days').toDate();
+      await mission.save();
+    }
+    return mission;
+  }
+
+  // mission 주차 처리
+  async handleMissionWeek(member) {
+    const mission = await this.missionModel.findOne({ owner: member._id });
+    if (mission) {
+      const d = new Date();
+      const today = moment(d);
+      const missionStartedDate = mission['createdAt'];
+      const diff = today.diff(missionStartedDate, 'weeks');
+      if (mission.isComplete) {
+        mission.week = diff + 1;
+        mission.isComplete = false;
+        mission.save();
+      }
+    }
+  }
+
+  async missionComplete(id: string) {
+    const mission = await this.missionModel.findById(id);
+    if (mission) {
+      mission.isComplete = true;
+      await mission.save();
+    }
+    return mission;
   }
 
   async getMissionSet(query: object) {
@@ -69,7 +127,6 @@ export class MissionsService {
       .populate('tasksNormal', 'title description tags term infant student')
       .populate('tasksLow', 'title description tags term infant student');
     // 미션 정보 생성
-    // console.log(missionSet);
     const mission = {
       code: missionSet.code,
       name: missionSet.name,

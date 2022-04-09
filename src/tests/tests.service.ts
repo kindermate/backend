@@ -60,6 +60,7 @@ export class TestsService {
       result: createdResult._id,
       week: 1,
       isComplete: false,
+      startDate: new Date(),
     });
     await mission.save();
 

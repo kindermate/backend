@@ -110,7 +110,7 @@ AdminJS.registerAdapter(AdminJSMongoose);
             { resource: guideModel, options: GuideOptions },
           ],
           locale: {
-            language: 'EN',
+            language: 'en',
             translations: {
               labels: {
                 loginWelcome: '안녕하세요',

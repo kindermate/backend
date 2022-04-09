@@ -22,6 +22,9 @@ export class Mission extends Document {
   result: Types.ObjectId;
 
   @Prop()
+  startDate: Date;
+
+  @Prop()
   week: number;
 
   @Prop()

@@ -34,7 +34,10 @@ export class MemosService {
   async getMemosOfMission(query: object) {
     const id = query['mission'];
     const mission = await this.missionModel.findById(id);
-    const memo = await this.memoModel.find({ mission: mission.id });
+    const memo = await this.memoModel.find({
+      mission: mission.id,
+      week: query['week'],
+    });
     return memo;
   }
 
