@@ -77,4 +77,16 @@ export class UsersController {
     console.log(data);
     return await this.usersService.changePassword(id, data);
   }
+
+  // 아이디 찾기
+  @Get('/find-username/:email')
+  async findUsernameWithEmail(@Param('email') email: string) {
+    return await this.usersService.findUsernameWithEmail(email);
+  }
+
+  // 비밀번호 재설정
+  @Get('/reset-password/:email')
+  async resetPasswordWidthEmail(@Param('email') email: string) {
+    return await this.usersService.resetPasswordWithEmail(email);
+  }
 }

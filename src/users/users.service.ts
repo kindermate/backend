@@ -1,8 +1,11 @@
+import * as nodemailer from 'nodemailer';
+import * as aws from '@aws-sdk/client-ses';
+import * as bcrypt from 'bcrypt';
+import * as ejs from 'ejs';
+import * as crypto from 'crypto';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import * as bcrypt from 'bcrypt';
-import { Model, Types } from 'mongoose';
-import { UserChangePasswordDto } from './dto/users.changePassword.dto';
+import { Model } from 'mongoose';
 import { UserRequestDto } from './dto/users.request.dto';
 import { UserUpdateDto } from './dto/users.update.dto';
 import { User } from './user.schema';
@@ -87,5 +90,96 @@ export class UsersService {
       { new: true },
     );
     return user.readOnlyData;
+  }
+
+  // username 찾기(이메일 보내기)
+  async findUsernameWithEmail(email: string) {
+    const user = await this.userModel.findOne({ email: email });
+
+    if (!user) {
+      throw new UnauthorizedException(
+        '해당 이메일로 가입한 내역이 존재하지 않습니다.',
+      );
+    }
+
+    const ses = new aws.SES({
+      apiVersion: '2010-12-01',
+      region: process.env.AWS_REGION_ID,
+    });
+
+    const mailer = nodemailer.createTransport({
+      SES: { ses, aws },
+    });
+
+    let template: string;
+    ejs.renderFile(
+      'src/utils/emails/findUsername.ejs',
+      { username: user.username },
+      (err, data) => {
+        if (err) {
+          console.log(err);
+        }
+        template = data;
+      },
+    );
+
+    await mailer.sendMail({
+      from: '킨더메이트 <no-reply@kindermate.io>',
+      to: email,
+      subject: '[킨더메이트] 아이디 찾기 결과입니다.',
+      html: template,
+    });
+
+    return { message: `${email}로 가입 시 입력하신 아이디를 보내드렸습니다.` };
+  }
+
+  // 임시 비밀번호 발송
+  async resetPasswordWithEmail(email: string) {
+    const user = await this.userModel.findOne({ email: email });
+
+    // 임시 비밀번호 생성
+    const tempPassword = crypto.randomBytes(3).toString('hex');
+    // 임시 비밀번호 hash
+    const hashedPassword = await bcrypt.hash(tempPassword, 10);
+
+    if (user) {
+      user.password = hashedPassword;
+      await user.save();
+    } else {
+      throw new UnauthorizedException(
+        '해당 이메일로 가입한 내역이 존재하지 않습니다.',
+      );
+    }
+
+    // 이메일 전송 셋팅
+    const ses = new aws.SES({
+      apiVersion: '2010-12-01',
+      region: process.env.AWS_REGION_ID,
+    });
+
+    const mailer = nodemailer.createTransport({
+      SES: { ses, aws },
+    });
+
+    let template: string;
+    ejs.renderFile(
+      'src/utils/emails/resetPassword.ejs',
+      { password: tempPassword },
+      (err, data) => {
+        if (err) {
+          console.log(err);
+        }
+        template = data;
+      },
+    );
+
+    await mailer.sendMail({
+      from: '킨더메이트 <no-reply@kindermate.io>',
+      to: email,
+      subject: '[킨더메이트] 임시 비밀번호를 보내드립니다.',
+      html: template,
+    });
+
+    return { message: `${email}로 임시 비밀번호를 보내드렸습니다.` };
   }
 }

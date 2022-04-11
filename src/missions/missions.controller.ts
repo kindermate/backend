@@ -25,6 +25,11 @@ export class MissionsController {
     return await this.missionService.getRecentMissions(id);
   }
 
+  @Get('message/:score')
+  async getMessageWithScore(@Param('score') score: number) {
+    return await this.missionService.getMessageWithScore(score);
+  }
+
   @Put('next/:id')
   async updateMissionWeek(@Param('id') id: string) {
     return await this.missionService.updateMissionWeek(id);

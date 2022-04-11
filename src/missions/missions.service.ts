@@ -8,6 +8,7 @@ import { Member } from '@/members/member.schema';
 import { Week } from './schema/week.schema';
 import { Rating } from '../ratings/schema/rating.schema';
 import * as moment from 'moment';
+import { Message } from './schema/message.schema';
 
 @Injectable()
 export class MissionsService {
@@ -22,6 +23,8 @@ export class MissionsService {
     private readonly weekModel: Model<Week>,
     @InjectModel(Rating.name)
     private readonly ratingModel: Model<Rating>,
+    @InjectModel(Message.name)
+    private readonly messageModel: Model<Message>,
   ) {}
 
   // 임시: start date 추가
@@ -32,6 +35,11 @@ export class MissionsService {
       mission.startDate = mission['createdAt'];
       await mission.save();
     });
+  }
+
+  async getMessageWithScore(score: number) {
+    const message = await this.messageModel.findOne({ score: score });
+    return message;
   }
 
   async getRecentMissions(id: string | Types.ObjectId) {

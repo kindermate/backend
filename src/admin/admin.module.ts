@@ -44,6 +44,11 @@ import { GuidesModule } from '@/guides/guides.module';
 
 AdminJS.registerAdapter(AdminJSMongoose);
 
+const ADMIN = {
+  email: 'test',
+  password: '1111',
+};
+
 @Module({
   imports: [
     AdminJSModule.createAdminAsync({
@@ -141,10 +146,14 @@ AdminJS.registerAdapter(AdminJSMongoose);
           },
         },
         auth: {
-          authenticate: async (email, password) =>
-            Promise.resolve({ email: 'admin' }),
-          cookieName: 'admin',
-          cookiePassword: '1111',
+          cookieName: 'kindermate',
+          cookiePassword: 'kindermate',
+          authenticate: async (email, password) => {
+            if (ADMIN.password === password && ADMIN.email === email) {
+              return ADMIN;
+            }
+            return null;
+          },
         },
       }),
     }),
