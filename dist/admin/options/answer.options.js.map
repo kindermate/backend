@@ -1,0 +1,1 @@
+{"version":3,"file":"answer.options.js","sourceRoot":"","sources":["../../../src/admin/options/answer.options.ts"],"names":[],"mappings":";;;AACA,iCAA8B;AAEjB,QAAA,aAAa,GAAG;IAC3B,MAAM,EAAE,WAAI,CAAC,IAAI;IACjB,UAAU,EAAE;QACV,OAAO,EAAE;YAIP,SAAS,EAAE;gBACT,IAAI,EAAE,KAAK;gBACX,IAAI,EAAE,IAAI;aACX;SACF;KACF;IACD,IAAI,EAAE;QACJ,MAAM,EAAE,WAAW;QACnB,SAAS,EAAE,MAAM;KAClB;CACF,CAAC"}
