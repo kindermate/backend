@@ -8,6 +8,7 @@ export declare class UsersService {
     private readonly userModel;
     constructor(usersRepository: UsersRepository, userModel: Model<User>);
     getAllUsers(): Promise<User[]>;
+    getUsersForExcel(): Promise<User[]>;
     signUp(body: UserRequestDto): Promise<{
         id: string;
         username: string;

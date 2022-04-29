@@ -24,6 +24,10 @@ export class UsersService {
     return users;
   }
 
+  async getUsersForExcel() {
+    return await this.usersRepository.getUsersForExcel();
+  }
+
   // 회원가입
   async signUp(body: UserRequestDto) {
     const {

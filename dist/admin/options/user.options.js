@@ -2,10 +2,16 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserOptions = void 0;
 const menu_1 = require("./menu");
+const adminjs_1 = require("adminjs");
 exports.UserOptions = {
     parent: menu_1.menu.user,
     actions: {
         new: { isVisible: false },
+        download: {
+            icon: 'View',
+            actionType: 'resource',
+            component: adminjs_1.default.bundle('../components/DownloadUsers.jsx'),
+        },
     },
     properties: {
         _id: {

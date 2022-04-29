@@ -43,6 +43,13 @@ let UsersRepository = class UsersRepository {
     async create(user) {
         return await this.userModel.create(user);
     }
+    async getUsersForExcel() {
+        const users = await this.userModel
+            .find({})
+            .select({ password: 0, __v: 0, _id: 0 })
+            .sort('-createdAt');
+        return users;
+    }
 };
 UsersRepository = __decorate([
     (0, common_1.Injectable)(),

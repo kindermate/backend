@@ -1,9 +1,15 @@
 import { menu } from './menu';
+import AdminJS from 'adminjs';
 
 export const UserOptions = {
   parent: menu.user,
   actions: {
     new: { isVisible: false },
+    download: {
+      icon: 'View',
+      actionType: 'resource',
+      component: AdminJS.bundle('../components/DownloadUsers.jsx'),
+    },
   },
   properties: {
     _id: {

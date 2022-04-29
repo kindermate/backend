@@ -89,4 +89,10 @@ export class UsersController {
   async resetPasswordWidthEmail(@Param('email') email: string) {
     return await this.usersService.resetPasswordWithEmail(email);
   }
+
+  // @UseGuards(JwtAuthGuard)
+  @Get('/download-users-to-excel')
+  async downloadUsersToExcel() {
+    return await this.usersService.getUsersForExcel();
+  }
 }

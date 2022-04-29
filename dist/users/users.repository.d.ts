@@ -9,4 +9,5 @@ export declare class UsersRepository {
     findUserByUsername(username: string): Promise<User | null>;
     existByEmail(email: string): Promise<boolean>;
     create(user: UserRequestDto): Promise<User>;
+    getUsersForExcel(): Promise<User[]>;
 }

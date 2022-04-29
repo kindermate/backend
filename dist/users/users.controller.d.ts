@@ -67,4 +67,5 @@ export declare class UsersController {
     resetPasswordWidthEmail(email: string): Promise<{
         message: string;
     }>;
+    downloadUsersToExcel(): Promise<User[]>;
 }

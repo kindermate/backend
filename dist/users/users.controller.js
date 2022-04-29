@@ -64,6 +64,9 @@ let UsersController = class UsersController {
     async resetPasswordWidthEmail(email) {
         return await this.usersService.resetPasswordWithEmail(email);
     }
+    async downloadUsersToExcel() {
+        return await this.usersService.getUsersForExcel();
+    }
 };
 __decorate([
     (0, common_1.Get)('all'),
@@ -137,6 +140,12 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "resetPasswordWidthEmail", null);
+__decorate([
+    (0, common_1.Get)('/download-users-to-excel'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "downloadUsersToExcel", null);
 UsersController = __decorate([
     (0, common_1.Controller)('users'),
     (0, common_1.UseInterceptors)(success_interceptor_1.SuccessInterceptor),

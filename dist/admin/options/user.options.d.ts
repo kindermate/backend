@@ -7,6 +7,11 @@ export declare const UserOptions: {
         new: {
             isVisible: boolean;
         };
+        download: {
+            icon: string;
+            actionType: string;
+            component: string;
+        };
     };
     properties: {
         _id: {

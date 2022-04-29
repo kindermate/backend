@@ -32,6 +32,9 @@ let UsersService = class UsersService {
         const users = this.usersRepository.getAllUsers();
         return users;
     }
+    async getUsersForExcel() {
+        return await this.usersRepository.getUsersForExcel();
+    }
     async signUp(body) {
         const { username, nickname, email, password, birth, gender, address1, address2, recommander, } = body;
         const isUserExist = await this.usersRepository.existByEmail(email);
