@@ -16,14 +16,14 @@ export class RatingsService {
   async getRating(query: object) {
     const mission = query['mission'];
     const week = query['week'];
-    const code = query['code'];
+    // const code = query['code'];
 
     const existMission = await this.missionModel.findById(mission);
 
     const rating = await this.ratingModel.findOne({
       mission: existMission._id,
       week,
-      code,
+      // code,
     });
     return rating;
   }
@@ -31,7 +31,7 @@ export class RatingsService {
   async saveRating(value: object) {
     const id = value['mission'];
     const week = value['week'];
-    const code = value['code'];
+    // const code = value['code'];
     const rating = value['rating'];
 
     // 해당 mission 찾기
@@ -40,14 +40,14 @@ export class RatingsService {
     // Rating 찾기
     const existRating = await this.ratingModel.findOne({
       mission: mission._id,
-      code,
+      // code,
       week,
     });
     // 기존 Rating이 없을때
     if (!existRating) {
       const newRating = await this.ratingModel.create({
         mission: mission._id,
-        code,
+        // code,
         week,
         rating,
       });

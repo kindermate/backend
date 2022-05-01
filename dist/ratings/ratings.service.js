@@ -26,30 +26,25 @@ let RatingsService = class RatingsService {
     async getRating(query) {
         const mission = query['mission'];
         const week = query['week'];
-        const code = query['code'];
         const existMission = await this.missionModel.findById(mission);
         const rating = await this.ratingModel.findOne({
             mission: existMission._id,
             week,
-            code,
         });
         return rating;
     }
     async saveRating(value) {
         const id = value['mission'];
         const week = value['week'];
-        const code = value['code'];
         const rating = value['rating'];
         const mission = await this.missionModel.findById(id);
         const existRating = await this.ratingModel.findOne({
             mission: mission._id,
-            code,
             week,
         });
         if (!existRating) {
             const newRating = await this.ratingModel.create({
                 mission: mission._id,
-                code,
                 week,
                 rating,
             });

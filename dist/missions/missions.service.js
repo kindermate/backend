@@ -110,8 +110,9 @@ let MissionsService = class MissionsService {
     async getMissionSet(query) {
         const week = query['week'];
         const grade = query['grade'];
+        const code = query['code'];
         const missionSet = await this.weekModel
-            .findOne({ week: week })
+            .findOne({ code: code, week: week })
             .populate('tasksHigh', 'title description tags term infant student')
             .populate('tasksNormal', 'title description tags term infant student')
             .populate('tasksLow', 'title description tags term infant student');
