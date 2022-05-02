@@ -59,12 +59,6 @@ let MissionsService = class MissionsService {
     }
     async getMembersWithMissions(id) {
         const user = await this.userModel.findById(id);
-        const members = await this.memberModel.find({ parent: user._id }, {
-            avatar: 1,
-            birth: 1,
-            gender: 1,
-            name: 1,
-        });
         const finalMembers = await this.memberModel
             .find({ parent: user._id }, { avatar: 1, birth: 1, gender: 1, name: 1 })
             .populate({

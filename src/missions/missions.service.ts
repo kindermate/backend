@@ -61,16 +61,6 @@ export class MissionsService {
   async getMembersWithMissions(id: string) {
     const user = await this.userModel.findById(id);
 
-    const members = await this.memberModel.find(
-      { parent: user._id },
-      {
-        avatar: 1,
-        birth: 1,
-        gender: 1,
-        name: 1,
-      },
-    );
-
     // mission 주차 처리
     // members.forEach(async (member) => {
     //   await this.handleMissionWeek(member);

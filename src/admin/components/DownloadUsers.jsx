@@ -7,7 +7,7 @@ const DownloadUsers = () => {
   const fetchData = async () => {
     try {
       const { data } = await axios.get(
-        'http://localhost:3000/users/download-users-to-excel/',
+        'https://api.kindermate.io/users/download-users-to-excel/',
       );
       const today = new Date();
       const formatedToday = `${today.getFullYear()}_${
