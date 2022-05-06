@@ -24,6 +24,7 @@ const missions_module_1 = require("./missions/missions.module");
 const memos_module_1 = require("./memos/memos.module");
 const ratings_module_1 = require("./ratings/ratings.module");
 const guides_module_1 = require("./guides/guides.module");
+const simple_tests_module_1 = require("./simple-tests/simple-tests.module");
 const mongoose = require("mongoose");
 let AppModule = class AppModule {
     constructor() {
@@ -55,6 +56,7 @@ AppModule = __decorate([
             memos_module_1.MemosModule,
             ratings_module_1.RatingsModule,
             guides_module_1.GuidesModule,
+            simple_tests_module_1.SimpleTestsModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

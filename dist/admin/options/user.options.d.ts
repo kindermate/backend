@@ -35,16 +35,16 @@ export declare const UserOptions: {
         gender: {
             position: number;
         };
-        country: {
-            position: number;
-        };
         address1: {
             position: number;
         };
         address2: {
             position: number;
         };
-        recommander: {
+        type: {
+            position: number;
+        };
+        findOut: {
             position: number;
         };
         createdAt: {

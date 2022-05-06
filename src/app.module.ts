@@ -15,6 +15,7 @@ import { MissionsModule } from './missions/missions.module';
 import { MemosModule } from './memos/memos.module';
 import { RatingsModule } from './ratings/ratings.module';
 import { GuidesModule } from './guides/guides.module';
+import { SimpleTestsModule } from './simple-tests/simple-tests.module';
 import * as mongoose from 'mongoose';
 
 @Module({
@@ -37,6 +38,7 @@ import * as mongoose from 'mongoose';
     MemosModule,
     RatingsModule,
     GuidesModule,
+    SimpleTestsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

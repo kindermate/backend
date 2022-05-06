@@ -29,6 +29,12 @@ export class UserRequestDto {
   @IsString()
   address2: string;
 
+  // @IsString()
+  // recommander: string;
+
   @IsString()
-  recommander: string;
+  type: string;
+
+  @IsString()
+  findOut: string;
 }

@@ -7,5 +7,6 @@ export declare class UserRequestDto {
     gender: string;
     address1: string;
     address2: string;
-    recommander: string;
+    type: string;
+    findOut: string;
 }

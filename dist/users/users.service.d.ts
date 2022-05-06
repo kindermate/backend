@@ -18,7 +18,8 @@ export declare class UsersService {
         gender: string;
         address1: string;
         address2: string;
-        recommander: string;
+        type: string;
+        findOut: string;
     }>;
     duplicateCheckUsername(username: string): Promise<string>;
     updateUser(id: string, userData: UserUpdateDto): Promise<{
@@ -30,7 +31,8 @@ export declare class UsersService {
         gender: string;
         address1: string;
         address2: string;
-        recommander: string;
+        type: string;
+        findOut: string;
     }>;
     changePassword(id: string, data: {
         password: string;
@@ -43,7 +45,8 @@ export declare class UsersService {
         gender: string;
         address1: string;
         address2: string;
-        recommander: string;
+        type: string;
+        findOut: string;
     }>;
     findUsernameWithEmail(email: string): Promise<{
         message: string;

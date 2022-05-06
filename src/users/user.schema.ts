@@ -42,9 +42,17 @@ export class User extends Document {
   @Prop()
   address2: string;
 
+  // @Prop()
+  // @IsString()
+  // recommander: string;
+
   @Prop()
   @IsString()
-  recommander: string;
+  type: string;
+
+  @Prop()
+  @IsString()
+  findOut: string;
 
   // @Prop()
   // country: string;
@@ -61,7 +69,9 @@ export class User extends Document {
     gender: string;
     address1: string;
     address2: string;
-    recommander: string;
+    type: string;
+    findOut: string;
+    // recommander: string;
   };
 }
 
@@ -77,7 +87,9 @@ _UserSchema.virtual('readOnlyData').get(function (this: User) {
     gender: this.gender,
     address1: this.address1,
     address2: this.address2,
-    recommander: this.recommander,
+    // recommander: this.recommander,
+    type: this.type,
+    findOut: this.findOut,
   };
 });
 

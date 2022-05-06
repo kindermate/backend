@@ -8,7 +8,8 @@ export declare class User extends Document {
     gender: string;
     address1: string;
     address2: string;
-    recommander: string;
+    type: string;
+    findOut: string;
     readonly readOnlyData: {
         id: string;
         username: string;
@@ -18,7 +19,8 @@ export declare class User extends Document {
         gender: string;
         address1: string;
         address2: string;
-        recommander: string;
+        type: string;
+        findOut: string;
     };
 }
 export declare const UserSchema: import("mongoose").Schema<User, import("mongoose").Model<User, any, any>, undefined, {}>;

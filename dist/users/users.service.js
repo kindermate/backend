@@ -36,7 +36,7 @@ let UsersService = class UsersService {
         return await this.usersRepository.getUsersForExcel();
     }
     async signUp(body) {
-        const { username, nickname, email, password, birth, gender, address1, address2, recommander, } = body;
+        const { username, nickname, email, password, birth, gender, address1, address2, type, findOut, } = body;
         const isUserExist = await this.usersRepository.existByEmail(email);
         if (isUserExist) {
             throw new common_1.UnauthorizedException('Email already exists.');
@@ -51,7 +51,8 @@ let UsersService = class UsersService {
             gender,
             address1,
             address2,
-            recommander,
+            type,
+            findOut,
         });
         return user.readOnlyData;
     }

@@ -52,6 +52,10 @@ __decorate([
 __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
-], UserRequestDto.prototype, "recommander", void 0);
+], UserRequestDto.prototype, "type", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UserRequestDto.prototype, "findOut", void 0);
 exports.UserRequestDto = UserRequestDto;
 //# sourceMappingURL=users.request.dto.js.map

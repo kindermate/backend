@@ -64,7 +64,12 @@ __decorate([
     (0, mongoose_1.Prop)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
-], User.prototype, "recommander", void 0);
+], User.prototype, "type", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], User.prototype, "findOut", void 0);
 User = __decorate([
     (0, mongoose_1.Schema)(options)
 ], User);
@@ -80,7 +85,8 @@ _UserSchema.virtual('readOnlyData').get(function () {
         gender: this.gender,
         address1: this.address1,
         address2: this.address2,
-        recommander: this.recommander,
+        type: this.type,
+        findOut: this.findOut,
     };
 });
 _UserSchema.virtual('members', {

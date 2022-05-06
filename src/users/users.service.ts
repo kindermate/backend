@@ -24,6 +24,7 @@ export class UsersService {
     return users;
   }
 
+  // 회원리스트 엑셀 다운로드
   async getUsersForExcel() {
     return await this.usersRepository.getUsersForExcel();
   }
@@ -39,7 +40,8 @@ export class UsersService {
       gender,
       address1,
       address2,
-      recommander,
+      type,
+      findOut,
     } = body;
     const isUserExist = await this.usersRepository.existByEmail(email);
 
@@ -58,7 +60,8 @@ export class UsersService {
       gender,
       address1,
       address2,
-      recommander,
+      type,
+      findOut,
     });
 
     return user.readOnlyData;
