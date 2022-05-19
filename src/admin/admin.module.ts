@@ -41,6 +41,17 @@ import { MissionOptions } from './options/mission.options';
 import { Guide } from '@/guides/schema/guide.schema';
 import { GuideOptions } from './options/guide.options';
 import { GuidesModule } from '@/guides/guides.module';
+import { SimpleTestsModule } from '@/simple-tests/simple-tests.module';
+import { SimpleTest } from '@/simple-tests/schema/simpleTest.schema';
+import { SimpleTestAnswer } from '@/simple-tests/schema/simpleTestAnswer.schema';
+import { SimpleTestQuestion } from '@/simple-tests/schema/simpleTestQuestion.schema';
+import { SimpleTestResult } from '@/simple-tests/schema/simpleTestResult.schema';
+import { SimpleTestResultComment } from '@/simple-tests/schema/simpleTestResultComment.schema';
+import { SimpleTestOptions } from './options/simpleTest.options';
+import { SimpleTestAnswerOptions } from './options/simpleTestAnswer.options';
+import { SimpleTestQuestionOptions } from './options/simpleTestQuestion.options';
+import { SimpleTestResultOptions } from './options/simpleTestResult.options';
+import { SimpleTestResultCommentOptions } from './options/simpleTestResultComment.options';
 
 AdminJS.registerAdapter(AdminJSMongoose);
 
@@ -60,6 +71,7 @@ const ADMIN = {
         ResultsModule,
         MissionsModule,
         GuidesModule,
+        SimpleTestsModule,
       ],
       inject: [
         getModelToken(User.name),
@@ -77,6 +89,11 @@ const ADMIN = {
         getModelToken(Message.name),
         getModelToken(Mission.name),
         getModelToken(Guide.name),
+        getModelToken(SimpleTest.name),
+        getModelToken(SimpleTestAnswer.name),
+        getModelToken(SimpleTestQuestion.name),
+        getModelToken(SimpleTestResult.name),
+        getModelToken(SimpleTestResultComment.name),
       ],
       useFactory: (
         userModel: Model<User>,
@@ -94,6 +111,11 @@ const ADMIN = {
         messageModel: Model<Message>,
         missionModel: Model<Mission>,
         guideModel: Model<Guide>,
+        simpleTestModel: Model<SimpleTest>,
+        simpleTestAnswerModel: Model<SimpleTestAnswer>,
+        simpleTestQuestionModel: Model<SimpleTestQuestion>,
+        simpleTestResultModel: Model<SimpleTestResult>,
+        simpleTestResultCommentModel: Model<SimpleTestResultComment>,
       ) => ({
         adminJsOptions: {
           rootPath: '/admin',
@@ -113,6 +135,23 @@ const ADMIN = {
             { resource: messageModel, options: MessageOptions },
             { resource: missionModel, options: MissionOptions },
             { resource: guideModel, options: GuideOptions },
+            { resource: simpleTestModel, options: SimpleTestOptions },
+            {
+              resource: simpleTestAnswerModel,
+              options: SimpleTestAnswerOptions,
+            },
+            {
+              resource: simpleTestQuestionModel,
+              options: SimpleTestQuestionOptions,
+            },
+            {
+              resource: simpleTestResultModel,
+              options: SimpleTestResultOptions,
+            },
+            {
+              resource: simpleTestResultCommentModel,
+              options: SimpleTestResultCommentOptions,
+            },
           ],
           locale: {
             language: 'en',
@@ -134,6 +173,11 @@ const ADMIN = {
                 Message: '메시지',
                 Mission: '미션',
                 Guide: '가이드',
+                SimpleTest: '검사',
+                SimpleTestAnswer: '답안',
+                SimpleTestQuestion: '문항',
+                SimpleTestResult: '결과',
+                SimpleTestResultComment: '결과 문구',
               },
               messages: {
                 loginWelcome: '플레이팩토 - 킨더메이트 관리자 사이트입니다.',

@@ -23,6 +23,11 @@ export class MembersController {
     return this.membersService.getMembers(id);
   }
 
+  @Get('simple-test-results/:id')
+  async getMembersWithSimpleTestResults(@Param('id') id: string) {
+    return this.membersService.getMembersWithSimpleTestResults(id);
+  }
+
   @Put()
   async updateMember(@Body() body: MemberUpdateDto) {
     return this.membersService.updateMember(body);

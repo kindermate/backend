@@ -59,6 +59,11 @@ _MemberSchema.virtual('missions', {
   localField: '_id',
   foreignField: 'owner',
 });
+_MemberSchema.virtual('simpleTests', {
+  ref: 'SimpleTestResult',
+  localField: '_id',
+  foreignField: 'owner',
+});
 _MemberSchema.set('toObject', { virtuals: true });
 _MemberSchema.set('toJSON', { virtuals: true });
 

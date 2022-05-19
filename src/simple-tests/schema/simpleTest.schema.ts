@@ -1,9 +1,8 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-// import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
 import { Document } from 'mongoose';
 
 @Schema()
-export class Test extends Document {
+export class SimpleTest extends Document {
   @Prop()
   code: string;
 
@@ -17,10 +16,10 @@ export class Test extends Document {
   description: string;
 
   @Prop()
-  notice: string;
+  activationStartDate: Date;
 
   @Prop()
-  time: number;
+  activationLastDate: Date;
 }
 
-export const TestSchema = SchemaFactory.createForClass(Test);
+export const SimpleTestSchema = SchemaFactory.createForClass(SimpleTest);

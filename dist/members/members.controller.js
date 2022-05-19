@@ -25,6 +25,9 @@ let MembersController = class MembersController {
     async getMembers(id) {
         return this.membersService.getMembers(id);
     }
+    async getMembersWithSimpleTestResults(id) {
+        return this.membersService.getMembersWithSimpleTestResults(id);
+    }
     async updateMember(body) {
         return this.membersService.updateMember(body);
     }
@@ -42,6 +45,13 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], MembersController.prototype, "getMembers", null);
+__decorate([
+    (0, common_1.Get)('simple-test-results/:id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], MembersController.prototype, "getMembersWithSimpleTestResults", null);
 __decorate([
     (0, common_1.Put)(),
     __param(0, (0, common_1.Body)()),

@@ -49,6 +49,17 @@ const mission_options_1 = require("./options/mission.options");
 const guide_schema_1 = require("../guides/schema/guide.schema");
 const guide_options_1 = require("./options/guide.options");
 const guides_module_1 = require("../guides/guides.module");
+const simple_tests_module_1 = require("../simple-tests/simple-tests.module");
+const simpleTest_schema_1 = require("../simple-tests/schema/simpleTest.schema");
+const simpleTestAnswer_schema_1 = require("../simple-tests/schema/simpleTestAnswer.schema");
+const simpleTestQuestion_schema_1 = require("../simple-tests/schema/simpleTestQuestion.schema");
+const simpleTestResult_schema_1 = require("../simple-tests/schema/simpleTestResult.schema");
+const simpleTestResultComment_schema_1 = require("../simple-tests/schema/simpleTestResultComment.schema");
+const simpleTest_options_1 = require("./options/simpleTest.options");
+const simpleTestAnswer_options_1 = require("./options/simpleTestAnswer.options");
+const simpleTestQuestion_options_1 = require("./options/simpleTestQuestion.options");
+const simpleTestResult_options_1 = require("./options/simpleTestResult.options");
+const simpleTestResultComment_options_1 = require("./options/simpleTestResultComment.options");
 adminjs_1.default.registerAdapter(AdminJSMongoose);
 const ADMIN = {
     email: 'test',
@@ -68,6 +79,7 @@ AdminModule = __decorate([
                     results_module_1.ResultsModule,
                     missions_module_1.MissionsModule,
                     guides_module_1.GuidesModule,
+                    simple_tests_module_1.SimpleTestsModule,
                 ],
                 inject: [
                     (0, mongoose_1.getModelToken)(user_schema_1.User.name),
@@ -85,8 +97,13 @@ AdminModule = __decorate([
                     (0, mongoose_1.getModelToken)(message_schema_1.Message.name),
                     (0, mongoose_1.getModelToken)(mission_schema_1.Mission.name),
                     (0, mongoose_1.getModelToken)(guide_schema_1.Guide.name),
+                    (0, mongoose_1.getModelToken)(simpleTest_schema_1.SimpleTest.name),
+                    (0, mongoose_1.getModelToken)(simpleTestAnswer_schema_1.SimpleTestAnswer.name),
+                    (0, mongoose_1.getModelToken)(simpleTestQuestion_schema_1.SimpleTestQuestion.name),
+                    (0, mongoose_1.getModelToken)(simpleTestResult_schema_1.SimpleTestResult.name),
+                    (0, mongoose_1.getModelToken)(simpleTestResultComment_schema_1.SimpleTestResultComment.name),
                 ],
-                useFactory: (userModel, memberModel, postModel, testModel, questionModel, partModel, answerModel, resultModel, commentaryModel, extraModel, weekModel, taskModel, messageModel, missionModel, guideModel) => ({
+                useFactory: (userModel, memberModel, postModel, testModel, questionModel, partModel, answerModel, resultModel, commentaryModel, extraModel, weekModel, taskModel, messageModel, missionModel, guideModel, simpleTestModel, simpleTestAnswerModel, simpleTestQuestionModel, simpleTestResultModel, simpleTestResultCommentModel) => ({
                     adminJsOptions: {
                         rootPath: '/admin',
                         resources: [
@@ -105,6 +122,23 @@ AdminModule = __decorate([
                             { resource: messageModel, options: message_options_1.MessageOptions },
                             { resource: missionModel, options: mission_options_1.MissionOptions },
                             { resource: guideModel, options: guide_options_1.GuideOptions },
+                            { resource: simpleTestModel, options: simpleTest_options_1.SimpleTestOptions },
+                            {
+                                resource: simpleTestAnswerModel,
+                                options: simpleTestAnswer_options_1.SimpleTestAnswerOptions,
+                            },
+                            {
+                                resource: simpleTestQuestionModel,
+                                options: simpleTestQuestion_options_1.SimpleTestQuestionOptions,
+                            },
+                            {
+                                resource: simpleTestResultModel,
+                                options: simpleTestResult_options_1.SimpleTestResultOptions,
+                            },
+                            {
+                                resource: simpleTestResultCommentModel,
+                                options: simpleTestResultComment_options_1.SimpleTestResultCommentOptions,
+                            },
                         ],
                         locale: {
                             language: 'en',
@@ -126,6 +160,11 @@ AdminModule = __decorate([
                                     Message: '메시지',
                                     Mission: '미션',
                                     Guide: '가이드',
+                                    SimpleTest: '검사',
+                                    SimpleTestAnswer: '답안',
+                                    SimpleTestQuestion: '문항',
+                                    SimpleTestResult: '결과',
+                                    SimpleTestResultComment: '결과 문구',
                                 },
                                 messages: {
                                     loginWelcome: '플레이팩토 - 킨더메이트 관리자 사이트입니다.',

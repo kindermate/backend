@@ -11,6 +11,10 @@ export declare const menu: {
         name: string;
         icon: string;
     };
+    simpleTest: {
+        name: string;
+        icon: string;
+    };
     post: {
         name: string;
         icon: string;

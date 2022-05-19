@@ -14,6 +14,7 @@ export declare class MembersService {
     private readonly missionsModel;
     constructor(membersModel: Model<Member>, usersRepository: UsersRepository, answersModel: Model<Answer>, resultsModel: Model<Result>, missionsModel: Model<Mission>);
     getMembers(id: string): Promise<Member[]>;
+    getMembersWithSimpleTestResults(id: string): Promise<Member[]>;
     updateMember(body: MemberUpdateDto): Promise<Member>;
     deleteMember(id: string): Promise<Member>;
     createMember(payload: MemberCreateDto): Promise<Member>;

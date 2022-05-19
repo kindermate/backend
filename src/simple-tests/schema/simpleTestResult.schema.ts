@@ -1,0 +1,28 @@
+import { Prop, Schema, SchemaFactory, SchemaOptions } from '@nestjs/mongoose';
+import { Document, Types } from 'mongoose';
+
+const options: SchemaOptions = {
+  timestamps: true,
+};
+
+@Schema(options)
+export class SimpleTestResult extends Document {
+  @Prop()
+  code: string;
+
+  @Prop({
+    required: true,
+    ref: 'Member',
+    type: Types.ObjectId,
+  })
+  owner: Types.ObjectId;
+
+  @Prop()
+  score: number;
+
+  @Prop()
+  grade: string;
+}
+
+export const SimpleTestResultSchema =
+  SchemaFactory.createForClass(SimpleTestResult);

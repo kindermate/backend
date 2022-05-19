@@ -34,6 +34,14 @@ let MembersService = class MembersService {
         const members = await this.membersModel.find({ parent: user._id });
         return members;
     }
+    async getMembersWithSimpleTestResults(id) {
+        const user = await this.usersRepository.findUserByIdWithoutPassword(id);
+        const members = await this.membersModel
+            .find({ parent: user._id })
+            .populate({ path: 'simpleTests' })
+            .exec();
+        return members;
+    }
     async updateMember(body) {
         const { id, name } = body;
         return await this.membersModel.findByIdAndUpdate(id, { name }, { new: true });

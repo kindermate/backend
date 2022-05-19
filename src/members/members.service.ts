@@ -29,6 +29,15 @@ export class MembersService {
     return members;
   }
 
+  async getMembersWithSimpleTestResults(id: string) {
+    const user = await this.usersRepository.findUserByIdWithoutPassword(id);
+    const members = await this.membersModel
+      .find({ parent: user._id })
+      .populate({ path: 'simpleTests' })
+      .exec();
+    return members;
+  }
+
   async updateMember(body: MemberUpdateDto) {
     const { id, name } = body;
     return await this.membersModel.findByIdAndUpdate(

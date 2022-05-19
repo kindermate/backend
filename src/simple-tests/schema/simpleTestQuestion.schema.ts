@@ -1,14 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-// import { IsNotEmpty, IsString } from 'class-validator';
 import { Document } from 'mongoose';
 
 @Schema()
-export class Question extends Document {
+export class SimpleTestQuestion extends Document {
   @Prop()
   code: string;
-
-  @Prop()
-  part: string;
 
   @Prop()
   order: number;
@@ -22,4 +18,5 @@ export class Question extends Document {
   isInverse: boolean;
 }
 
-export const QuestionSchema = SchemaFactory.createForClass(Question);
+export const SimpleTestQuestionSchema =
+  SchemaFactory.createForClass(SimpleTestQuestion);
