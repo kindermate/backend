@@ -2,7 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { PostCreateDto } from './dto/post.create.dto';
-import { Post } from './post.schema';
+import { Page } from './schema/page.schema';
+import { Post } from './schema/post.schema';
 
 @Injectable()
 export class PostsService {
@@ -26,5 +27,18 @@ export class PostsService {
   async createPost(payload: PostCreateDto) {
     const newPost = new this.postModel(payload);
     return await newPost.save();
+  }
+}
+
+@Injectable()
+export class PagesService {
+  constructor(
+    @InjectModel(Page.name)
+    private readonly pageModel: Model<Page>,
+  ) {}
+
+  async getPage(id: string) {
+    const page = await this.pageModel.findOne({ _id: id });
+    return page;
   }
 }

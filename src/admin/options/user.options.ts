@@ -12,9 +12,9 @@ export const UserOptions = {
     },
   },
   properties: {
-    _id: {
-      isVisible: false,
-    },
+    // _id: {
+    //   isVisible: false,
+    // },
     username: { position: 1 },
     nickname: { position: 2 },
     email: { position: 3 },

@@ -9,7 +9,7 @@ import { User } from '@/users/user.schema';
 import { MembersModule } from '@/members/members.module';
 import { Member } from '@/members/member.schema';
 import { PostsModule } from '@/posts/posts.module';
-import { Post } from '@/posts/post.schema';
+import { Post } from '@/posts/schema/post.schema';
 import { TestsModule } from '@/tests/tests.module';
 import { Test } from '@/tests/schema/test.schema';
 import { Question } from '@/tests/schema/question.schema';
@@ -52,6 +52,8 @@ import { SimpleTestAnswerOptions } from './options/simpleTestAnswer.options';
 import { SimpleTestQuestionOptions } from './options/simpleTestQuestion.options';
 import { SimpleTestResultOptions } from './options/simpleTestResult.options';
 import { SimpleTestResultCommentOptions } from './options/simpleTestResultComment.options';
+import { Page } from '@/posts/schema/page.schema';
+import { PageOptions } from './options/page.options';
 
 AdminJS.registerAdapter(AdminJSMongoose);
 
@@ -77,6 +79,7 @@ const ADMIN = {
         getModelToken(User.name),
         getModelToken(Member.name),
         getModelToken(Post.name),
+        getModelToken(Page.name),
         getModelToken(Test.name),
         getModelToken(Question.name),
         getModelToken(Part.name),
@@ -99,6 +102,7 @@ const ADMIN = {
         userModel: Model<User>,
         memberModel: Model<Member>,
         postModel: Model<Post>,
+        pageModel: Model<Page>,
         testModel: Model<Test>,
         questionModel: Model<Question>,
         partModel: Model<Part>,
@@ -123,6 +127,7 @@ const ADMIN = {
             { resource: userModel, options: UserOptions },
             { resource: memberModel, options: MemberOptions },
             { resource: postModel, options: PostOptions },
+            { resource: pageModel, options: PageOptions },
             { resource: testModel, options: TestOptions },
             { resource: questionModel, options: QuestionOptions },
             { resource: partModel, options: PartOptions },
@@ -161,6 +166,7 @@ const ADMIN = {
                 User: '회원',
                 Member: '검사 대상자',
                 Post: '게시글',
+                Page: '페이지',
                 Test: '검사',
                 Question: '문항',
                 Part: '하위영역',

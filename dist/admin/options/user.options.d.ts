@@ -14,9 +14,6 @@ export declare const UserOptions: {
         };
     };
     properties: {
-        _id: {
-            isVisible: boolean;
-        };
         username: {
             position: number;
         };

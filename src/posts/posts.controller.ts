@@ -9,7 +9,7 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { PostCreateDto } from './dto/post.create.dto';
-import { PostsService } from './posts.service';
+import { PagesService, PostsService } from './posts.service';
 
 @Controller('posts')
 @UseInterceptors(SuccessInterceptor)
@@ -29,5 +29,17 @@ export class PostsController {
   @Post('create')
   async createPost(@Body() body: PostCreateDto) {
     return this.postsService.createPost(body);
+  }
+}
+
+@Controller('pages')
+@UseInterceptors(SuccessInterceptor)
+export class PagesController {
+  constructor(private readonly pagesService: PagesService) {}
+
+  @Get(':id')
+  async getPage(@Param('id') id: string) {
+    console.log(id);
+    return this.pagesService.getPage(id);
   }
 }

@@ -17,7 +17,7 @@ const user_schema_1 = require("../users/user.schema");
 const members_module_1 = require("../members/members.module");
 const member_schema_1 = require("../members/member.schema");
 const posts_module_1 = require("../posts/posts.module");
-const post_schema_1 = require("../posts/post.schema");
+const post_schema_1 = require("../posts/schema/post.schema");
 const tests_module_1 = require("../tests/tests.module");
 const test_schema_1 = require("../tests/schema/test.schema");
 const question_schema_1 = require("../tests/schema/question.schema");
@@ -60,6 +60,8 @@ const simpleTestAnswer_options_1 = require("./options/simpleTestAnswer.options")
 const simpleTestQuestion_options_1 = require("./options/simpleTestQuestion.options");
 const simpleTestResult_options_1 = require("./options/simpleTestResult.options");
 const simpleTestResultComment_options_1 = require("./options/simpleTestResultComment.options");
+const page_schema_1 = require("../posts/schema/page.schema");
+const page_options_1 = require("./options/page.options");
 adminjs_1.default.registerAdapter(AdminJSMongoose);
 const ADMIN = {
     email: 'test',
@@ -85,6 +87,7 @@ AdminModule = __decorate([
                     (0, mongoose_1.getModelToken)(user_schema_1.User.name),
                     (0, mongoose_1.getModelToken)(member_schema_1.Member.name),
                     (0, mongoose_1.getModelToken)(post_schema_1.Post.name),
+                    (0, mongoose_1.getModelToken)(page_schema_1.Page.name),
                     (0, mongoose_1.getModelToken)(test_schema_1.Test.name),
                     (0, mongoose_1.getModelToken)(question_schema_1.Question.name),
                     (0, mongoose_1.getModelToken)(part_schema_1.Part.name),
@@ -103,13 +106,14 @@ AdminModule = __decorate([
                     (0, mongoose_1.getModelToken)(simpleTestResult_schema_1.SimpleTestResult.name),
                     (0, mongoose_1.getModelToken)(simpleTestResultComment_schema_1.SimpleTestResultComment.name),
                 ],
-                useFactory: (userModel, memberModel, postModel, testModel, questionModel, partModel, answerModel, resultModel, commentaryModel, extraModel, weekModel, taskModel, messageModel, missionModel, guideModel, simpleTestModel, simpleTestAnswerModel, simpleTestQuestionModel, simpleTestResultModel, simpleTestResultCommentModel) => ({
+                useFactory: (userModel, memberModel, postModel, pageModel, testModel, questionModel, partModel, answerModel, resultModel, commentaryModel, extraModel, weekModel, taskModel, messageModel, missionModel, guideModel, simpleTestModel, simpleTestAnswerModel, simpleTestQuestionModel, simpleTestResultModel, simpleTestResultCommentModel) => ({
                     adminJsOptions: {
                         rootPath: '/admin',
                         resources: [
                             { resource: userModel, options: user_options_1.UserOptions },
                             { resource: memberModel, options: member_options_1.MemberOptions },
                             { resource: postModel, options: post_options_1.PostOptions },
+                            { resource: pageModel, options: page_options_1.PageOptions },
                             { resource: testModel, options: test_options_1.TestOptions },
                             { resource: questionModel, options: question_option_1.QuestionOptions },
                             { resource: partModel, options: part_option_1.PartOptions },
@@ -148,6 +152,7 @@ AdminModule = __decorate([
                                     User: '회원',
                                     Member: '검사 대상자',
                                     Post: '게시글',
+                                    Page: '페이지',
                                     Test: '검사',
                                     Question: '문항',
                                     Part: '하위영역',

@@ -12,7 +12,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PostsController = void 0;
+exports.PagesController = exports.PostsController = void 0;
 const success_interceptor_1 = require("../common/interceptors/success.interceptor");
 const common_1 = require("@nestjs/common");
 const post_create_dto_1 = require("./dto/post.create.dto");
@@ -58,4 +58,26 @@ PostsController = __decorate([
     __metadata("design:paramtypes", [posts_service_1.PostsService])
 ], PostsController);
 exports.PostsController = PostsController;
+let PagesController = class PagesController {
+    constructor(pagesService) {
+        this.pagesService = pagesService;
+    }
+    async getPage(id) {
+        console.log(id);
+        return this.pagesService.getPage(id);
+    }
+};
+__decorate([
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], PagesController.prototype, "getPage", null);
+PagesController = __decorate([
+    (0, common_1.Controller)('pages'),
+    (0, common_1.UseInterceptors)(success_interceptor_1.SuccessInterceptor),
+    __metadata("design:paramtypes", [posts_service_1.PagesService])
+], PagesController);
+exports.PagesController = PagesController;
 //# sourceMappingURL=posts.controller.js.map

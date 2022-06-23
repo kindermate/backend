@@ -12,11 +12,12 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PostsService = void 0;
+exports.PagesService = exports.PostsService = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
-const post_schema_1 = require("./post.schema");
+const page_schema_1 = require("./schema/page.schema");
+const post_schema_1 = require("./schema/post.schema");
 let PostsService = class PostsService {
     constructor(postModel) {
         this.postModel = postModel;
@@ -42,4 +43,19 @@ PostsService = __decorate([
     __metadata("design:paramtypes", [mongoose_2.Model])
 ], PostsService);
 exports.PostsService = PostsService;
+let PagesService = class PagesService {
+    constructor(pageModel) {
+        this.pageModel = pageModel;
+    }
+    async getPage(id) {
+        const page = await this.pageModel.findOne({ _id: id });
+        return page;
+    }
+};
+PagesService = __decorate([
+    (0, common_1.Injectable)(),
+    __param(0, (0, mongoose_1.InjectModel)(page_schema_1.Page.name)),
+    __metadata("design:paramtypes", [mongoose_2.Model])
+], PagesService);
+exports.PagesService = PagesService;
 //# sourceMappingURL=posts.service.js.map
