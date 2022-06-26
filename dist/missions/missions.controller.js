@@ -12,16 +12,50 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MissionsController = void 0;
+exports.MissionsController = exports.MissionController = void 0;
 const success_interceptor_1 = require("../common/interceptors/success.interceptor");
 const common_1 = require("@nestjs/common");
 const missions_service_1 = require("./missions.service");
+let MissionController = class MissionController {
+    constructor(missionService) {
+        this.missionService = missionService;
+    }
+    async getMission(id) {
+        return await this.missionService.getMission(id);
+    }
+    async finishMission(id) {
+        return await this.missionService.finishMission(id);
+    }
+};
+__decorate([
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], MissionController.prototype, "getMission", null);
+__decorate([
+    (0, common_1.Get)('finish/:id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], MissionController.prototype, "finishMission", null);
+MissionController = __decorate([
+    (0, common_1.Controller)('mission'),
+    (0, common_1.UseInterceptors)(success_interceptor_1.SuccessInterceptor),
+    __metadata("design:paramtypes", [missions_service_1.MissionsService])
+], MissionController);
+exports.MissionController = MissionController;
 let MissionsController = class MissionsController {
     constructor(missionService) {
         this.missionService = missionService;
     }
     async getRecentMission(id) {
         return await this.missionService.getRecentMissions(id);
+    }
+    async getMessageForFinish(score) {
+        return await this.missionService.getMessageForClosing(score);
     }
     async getMessageWithScore(score) {
         return await this.missionService.getMessageWithScore(score);
@@ -46,6 +80,13 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], MissionsController.prototype, "getRecentMission", null);
+__decorate([
+    (0, common_1.Get)('message/closing/:score'),
+    __param(0, (0, common_1.Param)('score')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], MissionsController.prototype, "getMessageForFinish", null);
 __decorate([
     (0, common_1.Get)('message/:score'),
     __param(0, (0, common_1.Param)('score')),

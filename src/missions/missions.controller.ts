@@ -9,6 +9,22 @@ import {
 } from '@nestjs/common';
 import { MissionsService } from './missions.service';
 
+@Controller('mission')
+@UseInterceptors(SuccessInterceptor)
+export class MissionController {
+  constructor(private readonly missionService: MissionsService) {}
+
+  @Get(':id')
+  async getMission(@Param('id') id: string) {
+    return await this.missionService.getMission(id);
+  }
+
+  @Get('finish/:id')
+  async finishMission(@Param('id') id: string) {
+    return await this.missionService.finishMission(id);
+  }
+}
+
 @Controller('missions')
 @UseInterceptors(SuccessInterceptor)
 export class MissionsController {
@@ -23,6 +39,11 @@ export class MissionsController {
   @Get('recent/:id')
   async getRecentMission(@Param('id') id: string) {
     return await this.missionService.getRecentMissions(id);
+  }
+
+  @Get('message/closing/:score')
+  async getMessageForFinish(@Param('score') score: number) {
+    return await this.missionService.getMessageForClosing(score);
   }
 
   @Get('message/:score')

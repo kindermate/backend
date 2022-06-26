@@ -3,7 +3,7 @@ import { Rating, RatingSchema } from '@/ratings/schema/rating.schema';
 import { User, UserSchema } from '@/users/user.schema';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { MissionsController } from './missions.controller';
+import { MissionController, MissionsController } from './missions.controller';
 import { MissionsService } from './missions.service';
 import { Message, MessageSchema } from './schema/message.schema';
 import { Mission, MissionSchema } from './schema/mission.schema';
@@ -20,7 +20,7 @@ import { Week, WeekSchema } from './schema/week.schema';
     MongooseModule.forFeature([{ name: Mission.name, schema: MissionSchema }]),
     MongooseModule.forFeature([{ name: Rating.name, schema: RatingSchema }]),
   ],
-  controllers: [MissionsController],
+  controllers: [MissionsController, MissionController],
   providers: [MissionsService],
   exports: [MongooseModule],
 })

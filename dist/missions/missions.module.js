@@ -31,7 +31,7 @@ MissionsModule = __decorate([
             mongoose_1.MongooseModule.forFeature([{ name: mission_schema_1.Mission.name, schema: mission_schema_1.MissionSchema }]),
             mongoose_1.MongooseModule.forFeature([{ name: rating_schema_1.Rating.name, schema: rating_schema_1.RatingSchema }]),
         ],
-        controllers: [missions_controller_1.MissionsController],
+        controllers: [missions_controller_1.MissionsController, missions_controller_1.MissionController],
         providers: [missions_service_1.MissionsService],
         exports: [mongoose_1.MongooseModule],
     })

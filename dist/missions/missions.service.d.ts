@@ -14,7 +14,10 @@ export declare class MissionsService {
     private readonly messageModel;
     constructor(missionModel: Model<Mission>, userModel: Model<User>, memberModel: Model<Member>, weekModel: Model<Week>, ratingModel: Model<Rating>, messageModel: Model<Message>);
     addStartDate(): Promise<void>;
+    getMission(id: string): Promise<Mission>;
+    finishMission(id: string): Promise<string>;
     getMessageWithScore(score: number): Promise<Message>;
+    getMessageForClosing(score: number): Promise<any>;
     getRecentMissions(id: string | Types.ObjectId): Promise<Member[]>;
     getMembersWithMissions(id: string): Promise<Member[]>;
     updateMissionWeek(id: string): Promise<Mission>;

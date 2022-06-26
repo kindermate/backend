@@ -40,9 +40,35 @@ let MissionsService = class MissionsService {
             await mission.save();
         });
     }
+    async getMission(id) {
+        const mission = await this.missionModel.findById(id);
+        return mission;
+    }
+    async finishMission(id) {
+        const mission = await this.missionModel.findById(id);
+        const member = await this.memberModel.findById(mission.owner);
+        if (mission) {
+            mission.isFinished = true;
+            mission.save();
+            member.hasActiveMission = false;
+            member.save();
+            return 'Success';
+        }
+    }
     async getMessageWithScore(score) {
         const message = await this.messageModel.findOne({ score: score });
         return message;
+    }
+    async getMessageForClosing(score) {
+        const messages = await this.messageModel.find({ isClosing: true });
+        let message = {};
+        messages.forEach((item) => {
+            if (item.min <= score && item.max > score) {
+                console.log(item.min, item.max);
+                message = item;
+            }
+        });
+        return message['message'];
     }
     async getRecentMissions(id) {
         const user = await this.userModel.findById(id);
@@ -55,6 +81,14 @@ let MissionsService = class MissionsService {
             path: 'missions',
             options: { sort: { createdAt: -1 } },
         });
+        members.forEach((member) => {
+            if (member['missions'].length) {
+                if (member['missions'][0].week > 12) {
+                    member['missions'][0].week = 12;
+                    member.save();
+                }
+            }
+        });
         return members;
     }
     async getMembersWithMissions(id) {
@@ -65,6 +99,14 @@ let MissionsService = class MissionsService {
             path: 'missions',
             options: { sort: { createdAt: -1 } },
             populate: { path: 'result', select: 'results' },
+        });
+        finalMembers.forEach((member) => {
+            if (member['missions'].length) {
+                if (member['missions'][0].week > 12) {
+                    member['missions'][0].week = 12;
+                    member.save();
+                }
+            }
         });
         return finalMembers;
     }
@@ -86,8 +128,13 @@ let MissionsService = class MissionsService {
             const today = moment(d);
             const missionStartedDate = mission['createdAt'];
             const diff = today.diff(missionStartedDate, 'weeks');
-            if (mission.isComplete) {
+            if (mission.isComplete && diff < 12) {
                 mission.week = diff + 1;
+                mission.isComplete = false;
+                mission.save();
+            }
+            else if (diff >= 12) {
+                mission.week = 12;
                 mission.isComplete = false;
                 mission.save();
             }

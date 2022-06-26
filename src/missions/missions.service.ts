@@ -37,9 +37,38 @@ export class MissionsService {
     });
   }
 
+  async getMission(id: string) {
+    const mission = await this.missionModel.findById(id);
+    return mission;
+  }
+
+  async finishMission(id: string) {
+    const mission = await this.missionModel.findById(id);
+    const member = await this.memberModel.findById(mission.owner);
+    if (mission) {
+      mission.isFinished = true;
+      mission.save();
+      member.hasActiveMission = false;
+      member.save();
+      return 'Success';
+    }
+  }
+
   async getMessageWithScore(score: number) {
     const message = await this.messageModel.findOne({ score: score });
     return message;
+  }
+
+  async getMessageForClosing(score: number) {
+    const messages = await this.messageModel.find({ isClosing: true });
+    let message = {};
+    messages.forEach((item) => {
+      if (item.min <= score && item.max > score) {
+        console.log(item.min, item.max);
+        message = item;
+      }
+    });
+    return message['message'];
   }
 
   async getRecentMissions(id: string | Types.ObjectId) {
@@ -55,16 +84,20 @@ export class MissionsService {
         path: 'missions',
         options: { sort: { createdAt: -1 } },
       });
+    // 미션 12주차 이상 처리
+    members.forEach((member) => {
+      if (member['missions'].length) {
+        if (member['missions'][0].week > 12) {
+          member['missions'][0].week = 12;
+          member.save();
+        }
+      }
+    });
     return members;
   }
 
   async getMembersWithMissions(id: string) {
     const user = await this.userModel.findById(id);
-
-    // mission 주차 처리
-    // members.forEach(async (member) => {
-    //   await this.handleMissionWeek(member);
-    // });
 
     const finalMembers = await this.memberModel
       .find({ parent: user._id }, { avatar: 1, birth: 1, gender: 1, name: 1 })
@@ -73,6 +106,16 @@ export class MissionsService {
         options: { sort: { createdAt: -1 } },
         populate: { path: 'result', select: 'results' },
       });
+
+    // 미션 12주차 이상 처리
+    finalMembers.forEach((member) => {
+      if (member['missions'].length) {
+        if (member['missions'][0].week > 12) {
+          member['missions'][0].week = 12;
+          member.save();
+        }
+      }
+    });
 
     return finalMembers;
   }
@@ -99,8 +142,12 @@ export class MissionsService {
       const today = moment(d);
       const missionStartedDate = mission['createdAt'];
       const diff = today.diff(missionStartedDate, 'weeks');
-      if (mission.isComplete) {
+      if (mission.isComplete && diff < 12) {
         mission.week = diff + 1;
+        mission.isComplete = false;
+        mission.save();
+      } else if (diff >= 12) {
+        mission.week = 12;
         mission.isComplete = false;
         mission.save();
       }
